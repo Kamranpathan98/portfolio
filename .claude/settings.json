@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" log --oneline -10)"
+      "PowerShell(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" log --oneline -10)",
+      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" diff HEAD)",
+      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" diff)",
+      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" status)"
     ]
   }
 }

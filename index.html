@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kamran Pathan — Senior Frontend Engineer. Building scalable frontend systems for real-world workflows.">
+<title>Kamran Pathan — Senior Frontend Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080e1c;--surface:#0d1526;--card:#111d33;--card2:#152240;
+  --border:rgba(148,163,184,0.09);--border-md:rgba(148,163,184,0.16);--border-bright:rgba(148,163,184,0.26);
+  --text:#eef2f7;--muted:#8b9cba;--faint:#4a5a75;
+  --accent:#38bdf8;--accent2:#818cf8;--green:#34d399;--amber:#fbbf24;--rose:#fb7185;
+  --font-display:'Syne',sans-serif;--font-body:'Inter',sans-serif;--font-mono:'JetBrains Mono',monospace;
+  --radius:12px;--radius-lg:16px;
+  --shadow:0 1px 0 rgba(255,255,255,0.03) inset,0 2px 4px rgba(0,0,0,0.5),0 20px 40px -20px rgba(0,0,0,0.6);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);background:var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% -10%,rgba(56,189,248,0.07),transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 5%,rgba(129,140,248,0.05),transparent 55%);
+  background-attachment:fixed;color:var(--text);font-size:15px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-0.03em;line-height:1.05}
+h1{font-size:clamp(32px,3.8vw,54px);font-weight:600;letter-spacing:-0.03em;line-height:1.1}
+h2{font-size:clamp(28px,3.5vw,44px);font-weight:700}
+h3{font-size:20px;font-weight:700}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:100px 0;position:relative}
+.eyebrow{
+  font-family:var(--font-mono);font-size:10.5px;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);
+  display:inline-flex;align-items:center;gap:8px
+}
+.eyebrow::before{
+  content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 3px rgba(56,189,248,0.2)
+}
+.tag{
+  font-family:var(--font-mono);font-size:10.5px;padding:3px 9px;border-radius:5px;
+  background:rgba(148,163,184,0.07);border:1px solid var(--border);color:var(--muted)
+}
+.tag.accent{background:rgba(56,189,248,0.08);border-color:rgba(56,189,248,0.2);color:var(--accent)}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:8px;
+  font-size:13.5px;font-weight:500;font-family:var(--font-body);
+  border:1px solid var(--border-md);background:var(--card);color:var(--text);
+  cursor:pointer;transition:all 0.18s;text-decoration:none;white-space:nowrap
+}
+.btn:hover{background:var(--card2);border-color:var(--border-bright);transform:translateY(-1px)}
+.btn.primary{
+  background:var(--accent);color:#031018;border-color:var(--accent);font-weight:600;
+  box-shadow:0 0 0 1px rgba(56,189,248,0.35),0 6px 20px -6px rgba(56,189,248,0.5)
+}
+.btn.primary:hover{background:#5dcbfa;box-shadow:0 0 0 1px rgba(93,203,250,0.5),0 10px 28px -6px rgba(56,189,248,0.65)}
+.btn.ghost{background:transparent;border-color:var(--border);color:var(--muted)}
+.btn.ghost:hover{color:var(--text);border-color:var(--border-md)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.7s ease,transform 0.7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border-md),transparent)}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px}
+.section-title-block{max-width:640px}
+.section-title-block h2{margin-top:14px}
+.section-title-block p{color:var(--muted);margin-top:10px;font-size:15.5px}
+.section-meta{font-family:var(--font-mono);font-size:11px;color:var(--faint)}
+
+/* NAVBAR */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background 0.25s,border-color 0.25s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(8,14,28,0.75);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-bottom-color:var(--border)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-monogram{
+  width:34px;height:34px;border-radius:9px;
+  background:linear-gradient(135deg,rgba(56,189,248,0.15),rgba(129,140,248,0.1));
+  border:1px solid rgba(56,189,248,0.25);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--accent)
+}
+.nav-name{font-size:14px;font-weight:500;line-height:1.2}
+.nav-version{font-family:var(--font-mono);font-size:9.5px;color:var(--faint);display:block}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-link{
+  font-size:13.5px;font-weight:500;color:var(--muted);padding:6px 12px;border-radius:7px;
+  transition:color 0.15s,background 0.15s;position:relative;display:block
+}
+.nav-link:hover{color:var(--text);background:rgba(148,163,184,0.06)}
+.nav-link.active{color:var(--text)}
+.nav-link.active::after{
+  content:'';position:absolute;bottom:-1px;left:12px;right:12px;
+  height:2px;background:var(--accent);border-radius:1px
+}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  width:34px;height:34px;border-radius:8px;
+  background:var(--card);border:1px solid var(--border);
+  cursor:pointer;align-items:center;justify-content:center
+}
+.hamburger span{display:block;width:16px;height:1.5px;background:var(--muted);border-radius:1px;transition:all 0.2s}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{
+  display:none;position:fixed;top:64px;left:0;right:0;
+  background:rgba(8,14,28,0.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);padding:16px 24px 20px;
+  z-index:99;flex-direction:column;gap:2px
+}
+.mobile-menu.open{display:flex}
+.mobile-menu .nav-link{padding:10px 12px;font-size:15px}
+.mobile-menu-actions{display:flex;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+
+/* HERO */
+#hero{padding:120px 0 80px;min-height:100vh;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
+.hero-left{max-width:520px}
+.hero-eyebrow{margin-bottom:18px}
+.hero-title{margin-bottom:18px}
+.gradient-line{
+  background:linear-gradient(120deg,#f0f4f8,#38bdf8,#818cf8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
+}
+.hero-sub{font-size:15px;color:var(--muted);line-height:1.65;max-width:480px;margin-bottom:24px}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.hero-info-grid{border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden;max-width:480px}
+.info-row{display:grid;grid-template-columns:100px 1fr;border-top:1px solid var(--border);padding:11px 16px;align-items:center;gap:12px}
+.info-row:first-child{border-top:none}
+.info-key{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.07em;color:var(--faint)}
+.info-val{font-size:13px;color:var(--muted)}
+
+/* METRICS PANEL */
+.metrics-panel{
+  background:linear-gradient(170deg,var(--card),#0d192e);
+  border:1px solid var(--border-md);border-radius:14px;
+  box-shadow:var(--shadow),0 0 0 1px rgba(56,189,248,0.05),0 40px 80px -40px rgba(56,189,248,0.12);
+  overflow:hidden;position:relative
+}
+.metrics-grid-overlay{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(148,163,184,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,0.025) 1px,transparent 1px);
+  background-size:24px 24px;
+  mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,0.55));
+  -webkit-mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,0.55))
+}
+.metrics-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px 0;border-bottom:1px solid var(--border)
+}
+.metrics-tabs{display:flex;gap:2px}
+.metrics-tab{
+  font-family:var(--font-mono);font-size:10.5px;
+  padding:6px 12px;border-radius:6px 6px 0 0;
+  color:var(--faint);cursor:pointer;transition:all 0.15s
+}
+.metrics-tab.active{background:rgba(56,189,248,0.1);box-shadow:inset 0 1px 0 rgba(56,189,248,0.2);color:var(--accent)}
+.metrics-live{display:flex;align-items:center;gap:10px;padding-bottom:10px}
+.live-dot{display:flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:9.5px;color:var(--green)}
+.live-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse-green 2s ease-in-out infinite}
+@keyframes pulse-green{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,0.4)}50%{box-shadow:0 0 0 4px rgba(52,211,153,0)}}
+.metrics-region{font-family:var(--font-mono);font-size:9.5px;color:var(--faint)}
+.metrics-body{display:grid;grid-template-columns:1.4fr 1fr;gap:10px;padding:12px 14px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px}
+.stat-card{background:rgba(5,10,22,0.55);border:1px solid var(--border);border-radius:8px;padding:9px 9px 7px}
+.stat-label{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;color:var(--faint);margin-bottom:3px;letter-spacing:0.04em}
+.stat-value{font-family:var(--font-display);font-size:19px;font-weight:600;line-height:1.1;color:var(--text)}
+.stat-unit{font-family:var(--font-mono);font-size:9px;color:var(--faint)}
+.stat-trend{font-family:var(--font-mono);font-size:9.5px;margin-top:2px}
+.trend-up{color:var(--green)}.trend-dn{color:var(--rose)}
+.sparkline-card{background:rgba(5,10,22,0.55);border:1px solid var(--border);border-radius:8px;padding:9px;margin-bottom:8px}
+.sparkline-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.sparkline-title{font-family:var(--font-mono);font-size:9px;color:var(--faint);text-transform:uppercase}
+.sparkline-legend{display:flex;gap:9px}
+.legend-item{display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:9px;color:var(--faint)}
+.legend-dot{width:6px;height:6px;border-radius:50%}
+.sparkline-svg{width:100%;display:block}
+.sparkline-labels{display:flex;justify-content:space-between;margin-top:2px;font-family:var(--font-mono);font-size:8px;color:var(--faint)}
+.infra-bars{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.infra-bar-card{background:rgba(5,10,22,0.55);border:1px solid var(--border);border-radius:8px;padding:8px}
+.infra-bar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.infra-bar-label{font-family:var(--font-mono);font-size:9px;color:var(--faint);text-transform:uppercase}
+.infra-bar-val{font-family:var(--font-mono);font-size:9px;color:var(--muted)}
+.infra-track{height:4px;border-radius:2px;background:rgba(148,163,184,0.1);overflow:hidden}
+.infra-fill{height:100%;border-radius:2px;transition:width 0.7s cubic-bezier(.2,.7,.2,1)}
+.fill-accent{background:linear-gradient(90deg,var(--accent2),var(--accent))}
+.fill-green{background:linear-gradient(90deg,var(--green),rgba(52,211,153,0.7))}
+.fill-amber{background:linear-gradient(90deg,var(--amber),rgba(251,191,36,0.7))}
+.event-stream-card{background:rgba(5,10,22,0.55);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:8px}
+.stream-header{display:flex;align-items:center;justify-content:space-between;padding:7px 9px;border-bottom:1px solid var(--border)}
+.stream-url{font-family:var(--font-mono);font-size:9px;color:var(--faint)}
+.stream-connected{display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:9px;color:var(--green)}
+.stream-connected::before{content:'●';animation:blink-green 2s steps(2) infinite}
+@keyframes blink-green{0%,100%{opacity:1}50%{opacity:0.3}}
+.stream-body{height:132px;overflow:hidden;padding:5px 9px}
+.stream-event{font-family:var(--font-mono);font-size:9.5px;line-height:1.75;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stream-event.new{animation:fadeup 0.3s ease-out}
+@keyframes fadeup{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.evt-time{color:rgba(74,90,117,0.7)}.evt-arr{color:var(--accent)}.evt-type{color:var(--muted)}.evt-tn{color:var(--text)}
+.tenants-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.tenant-row{display:flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:9.5px;color:var(--faint);padding:2px 0}
+.t-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.t-ok{background:var(--green)}.t-deg{background:var(--amber)}
+.cmd-bar{
+  background:rgba(0,0,0,0.4);border-top:1px solid var(--border);
+  padding:9px 14px;font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
+  display:flex;align-items:center;gap:5px
+}
+.cmd-path{color:var(--accent)}
+.cmd-dollar{color:var(--faint)}
+.cmd-cursor{display:inline-block;width:6px;height:12px;background:var(--accent);vertical-align:middle;animation:blink-cur 1.1s steps(2) infinite}
+@keyframes blink-cur{0%,100%{opacity:1}50%{opacity:0}}
+.panel-caption{font-family:var(--font-mono);font-size:10px;color:var(--faint);text-align:right;margin-top:8px}
+
+/* PROJECTS */
+.projects-stack{display:flex;flex-direction:column;gap:2px}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:14px;transition:all 0.2s}
+.project-card:hover{background:var(--card2);border-color:var(--border-md)}
+.project-top{padding:28px 28px 24px;display:grid;grid-template-columns:1fr auto;gap:16px}
+.project-meta-row{font-family:var(--font-mono);font-size:10.5px;color:var(--faint);margin:6px 0 10px}
+.project-title{font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:-0.025em;margin-bottom:6px}
+.project-pos{font-size:14px;color:var(--muted);max-width:560px}
+.project-link{align-self:flex-start;font-size:12.5px;padding:7px 14px}
+.project-mid{padding:0 28px 24px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.col-label{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;color:var(--faint);margin-bottom:10px;letter-spacing:0.06em}
+.decision-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.decision-list li{font-size:13px;color:var(--muted);line-height:1.5;padding-left:14px;position:relative}
+.decision-list li::before{content:'›';color:var(--accent);position:absolute;left:0}
+.impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.impact-item{background:rgba(5,10,22,0.4);border:1px solid var(--border);border-radius:9px;padding:11px 8px;text-align:center}
+.impact-val{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text);display:block}
+.impact-label{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;color:var(--faint);margin-top:2px;display:block}
+.project-bottom{padding:14px 28px 20px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px}
+
+/* PRINCIPLES */
+.principles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.principle-card{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:22px;transition:all 0.22s;position:relative;overflow:hidden
+}
+.principle-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,#38bdf8,#818cf8);opacity:0;transition:opacity 0.22s
+}
+.principle-card:hover{border-color:var(--border-md);background:var(--card2);transform:translateY(-2px)}
+.principle-card:hover::before{opacity:1}
+.principle-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.principle-num{font-family:var(--font-mono);font-size:11px;background:rgba(56,189,248,0.09);border:1px solid rgba(56,189,248,0.18);color:var(--accent);padding:2px 8px;border-radius:5px}
+.principle-kw{font-family:var(--font-mono);font-size:9.5px;color:var(--faint)}
+.principle-title{font-family:var(--font-display);font-size:17px;font-weight:700;letter-spacing:-0.018em;line-height:1.2;margin-bottom:8px}
+.principle-body{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 18px;transition:all 0.22s}
+.skill-card:hover{border-color:var(--border-md);transform:translateY(-2px)}
+.skill-icon{width:36px;height:36px;border-radius:9px;background:rgba(56,189,248,0.09);border:1px solid rgba(56,189,248,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.skill-icon svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.skill-title{font-family:var(--font-display);font-size:15px;font-weight:700;margin-bottom:2px}
+.skill-subtitle{font-family:var(--font-mono);font-size:10px;color:var(--faint);margin-bottom:12px}
+.skill-rows{display:flex;flex-direction:column}
+.skill-row{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--border);padding:5px 0;gap:8px}
+.skill-key{font-size:12px;color:var(--text)}
+.skill-val{font-family:var(--font-mono);font-size:10px;color:var(--faint);text-align:right;flex-shrink:0}
+
+/* EXPERIENCE */
+.timeline{display:grid;grid-template-columns:20px 1fr;gap:20px}
+.timeline-spine{display:flex;flex-direction:column;align-items:center}
+.timeline-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 0 3px rgba(56,189,248,0.2);flex-shrink:0;margin-top:4px}
+.timeline-line{flex:1;width:1px;background:var(--border);margin-top:8px}
+.exp-period{font-family:var(--font-mono);font-size:10.5px;color:var(--faint);margin-bottom:6px}
+.exp-role{font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:-0.02em}
+.exp-company{font-size:13.5px;color:var(--muted);margin-top:4px;margin-bottom:14px}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.exp-bullets li{font-size:13px;color:var(--muted);line-height:1.55;padding-left:18px;position:relative}
+.exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--faint)}
+
+/* WRITING */
+.writing-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.writing-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all 0.22s;position:relative;overflow:hidden}
+.writing-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(56,189,248,0.04),transparent 60%);opacity:0;transition:opacity 0.22s}
+.writing-card:hover{border-color:var(--border-md);transform:translateY(-2px)}
+.writing-card:hover::after{opacity:1}
+.writing-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.writing-cat{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;color:var(--accent);letter-spacing:0.06em}
+.writing-status{font-family:var(--font-mono);font-size:10px;color:var(--faint)}
+.writing-num{font-family:var(--font-mono);font-size:10px;color:var(--faint);margin-bottom:6px}
+.writing-title{font-family:var(--font-display);font-size:16px;font-weight:700;line-height:1.25;margin-bottom:8px}
+.writing-summary{font-size:12.5px;color:var(--muted);line-height:1.55;margin-bottom:10px}
+.writing-read{font-family:var(--font-mono);font-size:10px;color:var(--faint)}
+
+/* CONTACT */
+.contact-card{
+  background:linear-gradient(150deg,var(--card),#0d192e);
+  border:1px solid var(--border-md);border-radius:20px;padding:56px;
+  position:relative;overflow:hidden
+}
+.contact-card::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(148,163,184,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,0.02) 1px,transparent 1px);
+  background-size:32px 32px
+}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;position:relative}
+.contact-h2{margin-top:14px;margin-bottom:14px}
+.contact-sub{color:var(--muted);font-size:15px;max-width:420px;margin-bottom:28px}
+.channel-list{display:flex;flex-direction:column;gap:10px}
+.channel-row{display:flex;align-items:center;gap:12px;background:rgba(5,10,22,0.4);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.channel-icon{width:34px;height:34px;border-radius:9px;background:rgba(56,189,248,0.09);border:1px solid rgba(56,189,248,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.channel-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.channel-info{flex:1;min-width:0}
+.channel-label{font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;color:var(--faint)}
+.channel-val{font-size:13.5px;color:var(--text);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.channel-action{font-family:var(--font-mono);font-size:10.5px;color:var(--accent);cursor:pointer;transition:opacity 0.15s;flex-shrink:0;background:none;border:none}
+.channel-action:hover{opacity:0.75}
+.channel-action.copied{color:var(--green)}
+.avail-card{background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.2);border-radius:12px;padding:20px;margin-bottom:16px}
+.avail-status{display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10.5px;color:var(--green);margin-bottom:10px}
+.avail-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse-green 2s ease-in-out infinite}
+.avail-title{font-family:var(--font-display);font-size:17px;font-weight:700;margin-bottom:6px}
+.avail-body{font-size:13px;color:var(--muted);line-height:1.55}
+.interests-list{display:flex;flex-direction:column;gap:8px}
+.interest-row{display:flex;align-items:center;gap:10px;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--muted)}
+.interest-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:24px 0}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.footer-text{font-family:var(--font-mono);font-size:11px;color:var(--faint)}
+.footer-links{display:flex;gap:16px}
+.footer-link{font-family:var(--font-mono);font-size:11px;color:var(--faint);transition:color 0.15s}
+.footer-link:hover{color:var(--muted)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.skills-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr}
+  .contact-inner{grid-template-columns:1fr}
+  .principles-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:820px){
+  section{padding:70px 0}
+  #hero{padding:110px 0 70px}
+  .nav-links,.nav-actions{display:none}
+  .hamburger{display:flex}
+  .metrics-body{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  h1{font-size:28px}
+  .skills-grid,.principles-grid,.writing-grid{grid-template-columns:1fr}
+  .contact-card{padding:28px}
+  .project-mid{grid-template-columns:1fr}
+  .project-top{grid-template-columns:1fr}
+  .project-link{display:none}
+  .section-header{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">
+      <div class="nav-monogram">kp</div>
+      <div>
+        <div class="nav-name">Kamran Pathan</div>
+        <span class="nav-version">v3.2.0 · senior frontend</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#projects" class="nav-link" data-sec="projects">Work</a>
+      <a href="#principles" class="nav-link" data-sec="principles">Principles</a>
+      <a href="#skills" class="nav-link" data-sec="skills">Skills</a>
+      <a href="#experience" class="nav-link" data-sec="experience">Experience</a>
+      <a href="#writing" class="nav-link" data-sec="writing">Writing</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#contact" class="btn ghost" style="padding:7px 14px;font-size:13px">Contact</a>
+      <a href="#" class="btn primary" style="padding:7px 14px;font-size:13px">Resume ↓</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#projects" class="nav-link">Work</a>
+  <a href="#principles" class="nav-link">Principles</a>
+  <a href="#skills" class="nav-link">Skills</a>
+  <a href="#experience" class="nav-link">Experience</a>
+  <a href="#writing" class="nav-link">Writing</a>
+  <div class="mobile-menu-actions">
+    <a href="#contact" class="btn ghost" style="flex:1;justify-content:center">Contact</a>
+    <a href="#" class="btn primary" style="flex:1;justify-content:center">Resume ↓</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <!-- Left -->
+      <div class="hero-left">
+        <div class="eyebrow hero-eyebrow">Available · Q3 2026 · Bengaluru / Remote</div>
+        <h1 class="hero-title">
+          Building scalable<br>
+          <span class="gradient-line">frontend systems</span><br>
+          for real-world workflows.
+        </h1>
+        <p class="hero-sub">
+          I'm <strong>Kamran Pathan</strong> — a Senior Frontend Engineer designing and shipping
+          multi-tenant SaaS frontends, ERP interfaces, and product experiences
+          that handle real business complexity without buckling under it.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn primary">View Projects →</a>
+          <a href="#contact" class="btn">Contact</a>
+          <a href="#" class="btn ghost">Resume PDF <span class="tag" style="margin-left:2px;font-size:9.5px">PDF</span></a>
+        </div>
+        <div class="hero-info-grid">
+          <div class="info-row">
+            <span class="info-key">currently</span>
+            <span class="info-val">Senior Frontend Engineer, Aloha Technology</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">stack</span>
+            <span class="info-val">React · TypeScript · NestJS · Node · React Native</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">focus</span>
+            <span class="info-val">Multi-tenant SaaS · ERP · Design systems · DX</span>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Metrics Panel -->
+      <div>
+        <div class="metrics-panel">
+          <div class="metrics-grid-overlay"></div>
+          <div class="metrics-header">
+            <div class="metrics-tabs">
+              <div class="metrics-tab active">overview</div>
+              <div class="metrics-tab">tenants</div>
+              <div class="metrics-tab">incidents</div>
+              <div class="metrics-tab">deploys</div>
+            </div>
+            <div class="metrics-live">
+              <span class="live-dot">live</span>
+              <span class="metrics-region">region: ap-south-1</span>
+            </div>
+          </div>
+          <div class="metrics-body">
+            <!-- Left col -->
+            <div>
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-label">requests / sec</div>
+                  <div class="stat-value" id="s-rps">2847</div>
+                  <div class="stat-trend trend-up" id="s-rps-t">↑ 3.2%</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">p95 latency</div>
+                  <div><span class="stat-value" id="s-lat">142</span><span class="stat-unit"> ms</span></div>
+                  <div class="stat-trend trend-up" id="s-lat-t">↓ 2.1%</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">error rate</div>
+                  <div><span class="stat-value" id="s-err">0.12</span><span class="stat-unit">%</span></div>
+                  <div class="stat-trend trend-up" id="s-err-t">↓ 0.03%</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">active users</div>
+                  <div class="stat-value" id="s-dau">1284</div>
+                  <div class="stat-trend trend-up" id="s-dau-t">↑ 8.4%</div>
+                </div>
+              </div>
+              <div class="sparkline-card">
+                <div class="sparkline-header">
+                  <span class="sparkline-title">response time · 5m window</span>
+                  <div class="sparkline-legend">
+                    <span class="legend-item"><span class="legend-dot" style="background:var(--accent)"></span>p95</span>
+                    <span class="legend-item"><span class="legend-dot" style="background:var(--accent2)"></span>p50</span>
+                  </div>
+                </div>
+                <svg id="spark-svg" class="sparkline-svg" height="58" viewBox="0 0 300 58" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="gp95" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.22"/>
+                      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="gp50" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.18"/>
+                      <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <line x1="0" y1="14" x2="300" y2="14" stroke="rgba(148,163,184,0.06)" stroke-dasharray="3,3"/>
+                  <line x1="0" y1="29" x2="300" y2="29" stroke="rgba(148,163,184,0.06)" stroke-dasharray="3,3"/>
+                  <line x1="0" y1="44" x2="300" y2="44" stroke="rgba(148,163,184,0.06)" stroke-dasharray="3,3"/>
+                  <path id="p50-fill" fill="url(#gp50)"/>
+                  <path id="p50-line" fill="none" stroke="#818cf8" stroke-width="1.5"/>
+                  <path id="p95-fill" fill="url(#gp95)"/>
+                  <path id="p95-line" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
+                </svg>
+                <div class="sparkline-labels"><span>5m ago</span><span>now</span></div>
+              </div>
+              <div class="infra-bars">
+                <div class="infra-bar-card">
+                  <div class="infra-bar-header">
+                    <span class="infra-bar-label">cpu</span>
+                    <span class="infra-bar-val" id="ib-cpu-v">62%</span>
+                  </div>
+                  <div class="infra-track"><div class="infra-fill fill-accent" id="ib-cpu" style="width:62%"></div></div>
+                </div>
+                <div class="infra-bar-card">
+                  <div class="infra-bar-header">
+                    <span class="infra-bar-label">memory</span>
+                    <span class="infra-bar-val" id="ib-mem-v">74%</span>
+                  </div>
+                  <div class="infra-track"><div class="infra-fill fill-green" id="ib-mem" style="width:74%"></div></div>
+                </div>
+                <div class="infra-bar-card">
+                  <div class="infra-bar-header">
+                    <span class="infra-bar-label">i/o sat</span>
+                    <span class="infra-bar-val" id="ib-io-v">31%</span>
+                  </div>
+                  <div class="infra-track"><div class="infra-fill fill-amber" id="ib-io" style="width:31%"></div></div>
+                </div>
+              </div>
+            </div>
+            <!-- Right col -->
+            <div>
+              <div class="event-stream-card">
+                <div class="stream-header">
+                  <span class="stream-url">ws://stream.events</span>
+                  <span class="stream-connected">connected</span>
+                </div>
+                <div class="stream-body" id="stream-body"></div>
+              </div>
+              <div class="tenants-grid">
+                <div class="tenant-row"><span class="t-dot t-ok"></span>northstar-mfg</div>
+                <div class="tenant-row"><span class="t-dot t-ok"></span>blue-ridge-logi</div>
+                <div class="tenant-row"><span class="t-dot t-ok"></span>atlas-foods</div>
+                <div class="tenant-row"><span class="t-dot t-deg"></span>harbourline-co</div>
+                <div class="tenant-row"><span class="t-dot t-ok"></span>qua-medical</div>
+                <div class="tenant-row"><span class="t-dot t-ok"></span>verdant-retail</div>
+                <div class="tenant-row"><span class="t-dot t-ok"></span>kestrel-supply</div>
+                <div class="tenant-row"><span class="t-dot t-ok"></span>orbit-textiles</div>
+                <div class="tenant-row"><span class="t-dot t-ok"></span>summit-pharma</div>
+                <div class="tenant-row"><span class="t-dot t-ok"></span>tinderbox-corp</div>
+                <div class="tenant-row"><span class="t-dot t-ok"></span>yulan-energy</div>
+                <div class="tenant-row"><span class="t-dot t-ok"></span>rosewood-grp</div>
+              </div>
+            </div>
+          </div>
+          <div class="cmd-bar">
+            <span class="cmd-path">~/edge-router</span>
+            <span class="cmd-dollar">$</span>
+            <span>kctl observe --tenant=northstar-mfg --tail</span>
+            <span class="cmd-cursor"></span>
+          </div>
+        </div>
+        <p class="panel-caption">// fig 01 · production telemetry from a tenant of an ERP platform I ship</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-title-block">
+        <span class="eyebrow">Selected Work</span>
+        <h2>Projects that ship.</h2>
+        <p>Three systems I designed, built, and own in production.</p>
+      </div>
+      <span class="section-meta">3 projects · 2021–present</span>
+    </div>
+    <div class="projects-stack">
+      <!-- 01 -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div>
+            <span class="tag accent">01</span>
+            <div class="project-meta-row">Tech Lead, Frontend · 2024 — present</div>
+            <h3 class="project-title">Multi-tenant SaaS ERP Platform</h3>
+            <p class="project-pos">An ERP backbone running 40+ manufacturers, distributors and retailers on a single codebase.</p>
+          </div>
+          <a href="#" class="btn project-link">View Case Study ↗</a>
+        </div>
+        <div class="project-mid">
+          <div>
+            <div class="col-label">Technical Decisions</div>
+            <ul class="decision-list">
+              <li>Module-federation per business unit so teams ship independently without coupling</li>
+              <li>Tenant-aware feature flags + theming through a runtime-resolved design token layer</li>
+              <li>Virtualised data grids handling 250k+ rows with column-level RBAC enforced server-side</li>
+              <li>Optimistic mutations with reconciled WebSocket invalidation across the tab tree</li>
+            </ul>
+          </div>
+          <div>
+            <div class="col-label">Impact</div>
+            <div class="impact-grid">
+              <div class="impact-item"><span class="impact-val">−38%</span><span class="impact-label">render p95</span></div>
+              <div class="impact-item"><span class="impact-val">40+</span><span class="impact-label">tenants</span></div>
+              <div class="impact-item"><span class="impact-val">250k</span><span class="impact-label">rows/grid</span></div>
+              <div class="impact-item"><span class="impact-val">99.97%</span><span class="impact-label">uptime 90d</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-bottom">
+          <span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">Next.js</span>
+          <span class="tag">tRPC</span><span class="tag">TanStack Table</span><span class="tag">Zustand</span>
+          <span class="tag">PostgreSQL</span><span class="tag">WebSockets</span>
+        </div>
+      </div>
+      <!-- 02 -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div>
+            <span class="tag accent">02</span>
+            <div class="project-meta-row">Senior Frontend Engineer · 2022–2024</div>
+            <h3 class="project-title">Anchorock ERM</h3>
+            <p class="project-pos">Enterprise resource management for industrial supply chains. Angular 2 → React migration.</p>
+          </div>
+          <a href="#" class="btn project-link">View Case Study ↗</a>
+        </div>
+        <div class="project-mid">
+          <div>
+            <div class="col-label">Technical Decisions</div>
+            <ul class="decision-list">
+              <li>Keyboard-first table primitive: range select, bulk edit, formula bar, full undo stack</li>
+              <li>Field-level audit log surfaced inline as a hover affordance — no separate audit screen</li>
+              <li>Server-driven UI for compliance workflows so policy changes without redeploys</li>
+              <li>Cut p95 route latency 38% via server components and aggressive edge caching</li>
+            </ul>
+          </div>
+          <div>
+            <div class="col-label">Impact</div>
+            <div class="impact-grid">
+              <div class="impact-item"><span class="impact-val">−6.2h</span><span class="impact-label">analyst/week</span></div>
+              <div class="impact-item"><span class="impact-val">12k</span><span class="impact-label">DAU</span></div>
+              <div class="impact-item"><span class="impact-val">0</span><span class="impact-label">blockers Q2</span></div>
+              <div class="impact-item"><span class="impact-val">94</span><span class="impact-label">NPS</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-bottom">
+          <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Angular 2→React</span>
+          <span class="tag">GraphQL</span><span class="tag">Radix UI</span><span class="tag">Framer Motion</span><span class="tag">Playwright</span>
+        </div>
+      </div>
+      <!-- 03 -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div>
+            <span class="tag accent">03</span>
+            <div class="project-meta-row">Frontend Lead · 2021–2022</div>
+            <h3 class="project-title">React Native Food Delivery App</h3>
+            <p class="project-pos">Consumer iOS/Android app — 200k MAU, offline-first, 60fps on entry-level Android.</p>
+          </div>
+          <a href="#" class="btn project-link">View Case Study ↗</a>
+        </div>
+        <div class="project-mid">
+          <div>
+            <div class="col-label">Technical Decisions</div>
+            <ul class="decision-list">
+              <li>Offline-first cart with CRDT-style merge layer to survive flaky 3G</li>
+              <li>Custom Hermes-friendly animation primitives — 60fps on lowest-spec Android</li>
+              <li>Single TypeScript design system shared across native app and Next.js admin console</li>
+              <li>Feature flag rollout pipeline integrated with backend experiment IDs</li>
+            </ul>
+          </div>
+          <div>
+            <div class="col-label">Impact</div>
+            <div class="impact-grid">
+              <div class="impact-item"><span class="impact-val">0.9s</span><span class="impact-label">cold start</span></div>
+              <div class="impact-item"><span class="impact-val">+22%</span><span class="impact-label">cart conv.</span></div>
+              <div class="impact-item"><span class="impact-val">200k</span><span class="impact-label">MAU</span></div>
+              <div class="impact-item"><span class="impact-val">4.6★</span><span class="impact-label">Play Store</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-bottom">
+          <span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Reanimated 3</span>
+          <span class="tag">Zustand</span><span class="tag">MMKV</span><span class="tag">Detox</span><span class="tag">Sentry</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PRINCIPLES -->
+<section id="principles">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-title-block">
+        <span class="eyebrow">How I Work</span>
+        <h2>Engineering principles.</h2>
+        <p>The ideas I keep coming back to when the complexity goes up.</p>
+      </div>
+      <span class="section-meta">6 principles</span>
+    </div>
+    <div class="principles-grid">
+      <div class="principle-card reveal">
+        <div class="principle-top"><span class="principle-num">01</span><span class="principle-kw">boundaries · ownership</span></div>
+        <h3 class="principle-title">"Architecture is a product feature."</h3>
+        <p class="principle-body">Module boundaries and data ownership decide whether the next ten features ship in two weeks or two quarters. I design for the second-year codebase, not the demo.</p>
+      </div>
+      <div class="principle-card reveal">
+        <div class="principle-top"><span class="principle-num">02</span><span class="principle-kw">schema-first · codegen</span></div>
+        <h3 class="principle-title">"Type the contract, not the screen."</h3>
+        <p class="principle-body">TypeScript pays for itself when types describe the API, not just the props. Generated clients and discriminated unions catch the bugs that would otherwise hit a tenant in production.</p>
+      </div>
+      <div class="principle-card reveal">
+        <div class="principle-top"><span class="principle-num">03</span><span class="principle-kw">RUM · budgets · p95</span></div>
+        <h3 class="principle-title">"Observability before optimisation."</h3>
+        <p class="principle-body">I instrument before I tune. Real User Monitoring and render budgets tell me what to fix. Performance is a number, not a vibe.</p>
+      </div>
+      <div class="principle-card reveal">
+        <div class="principle-top"><span class="principle-num">04</span><span class="principle-kw">tokens · primitives</span></div>
+        <h3 class="principle-title">"Design systems are graphs, not folders."</h3>
+        <p class="principle-body">A component library only compounds when tokens, primitives and patterns describe relationships — light/dark, density, tenant brand, motion. Systems that survive a redesign without a rewrite.</p>
+      </div>
+      <div class="principle-card reveal">
+        <div class="principle-top"><span class="principle-num">05</span><span class="principle-kw">DAU > demo</span></div>
+        <h3 class="principle-title">"Optimise for the analyst, not the demo."</h3>
+        <p class="principle-body">Power users live inside the product 8 hours a day. Keyboard-first, bulk-action, undo-everything. Density beats whitespace when the user is paid to be fast.</p>
+      </div>
+      <div class="principle-card reveal">
+        <div class="principle-top"><span class="principle-num">06</span><span class="principle-kw">flags · canary · audit</span></div>
+        <h3 class="principle-title">"Ship the rollback first."</h3>
+        <p class="principle-body">Feature flags, canary tenants, audit logs and a clean back-out path before the feature lands. Boring? Yes. That's how production frontend teams keep their nights.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-title-block">
+        <span class="eyebrow">Capabilities</span>
+        <h2>The full stack I work in.</h2>
+        <p>From design tokens to database migrations, these are the layers I own.</p>
+      </div>
+      <span class="section-meta">4 domains</span>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3 class="skill-title">Frontend Systems</h3>
+        <p class="skill-subtitle">primitives · perf · state</p>
+        <div class="skill-rows">
+          <div class="skill-row"><span class="skill-key">React 18 / Concurrent UI</span><span class="skill-val">transitions, suspense, RSC</span></div>
+          <div class="skill-row"><span class="skill-key">TypeScript</span><span class="skill-val">generics, discriminated unions</span></div>
+          <div class="skill-row"><span class="skill-key">Redux Toolkit</span><span class="skill-val">slices, RTK Query</span></div>
+          <div class="skill-row"><span class="skill-key">Web performance</span><span class="skill-val">LCP, INP, render budgets</span></div>
+          <div class="skill-row"><span class="skill-key">Virtualised tables</span><span class="skill-val">TanStack, AG Grid, 250k rows</span></div>
+          <div class="skill-row"><span class="skill-key">Module federation</span><span class="skill-val">Nx, Turborepo, micro-FE</span></div>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        </div>
+        <h3 class="skill-title">Backend & APIs</h3>
+        <p class="skill-subtitle">the data path I own</p>
+        <div class="skill-rows">
+          <div class="skill-row"><span class="skill-key">Node.js / NestJS</span><span class="skill-val">REST, BullMQ, guards</span></div>
+          <div class="skill-row"><span class="skill-key">PostgreSQL</span><span class="skill-val">RLS, migrations, audit</span></div>
+          <div class="skill-row"><span class="skill-key">WebSocket / SSE</span><span class="skill-val">fan-out, presence, retries</span></div>
+          <div class="skill-row"><span class="skill-key">Auth</span><span class="skill-val">OAuth2, JWT, RBAC + ABAC</span></div>
+          <div class="skill-row"><span class="skill-key">REST contracts</span><span class="skill-val">OpenAPI, RFC 7807</span></div>
+          <div class="skill-row"><span class="skill-key">Observability</span><span class="skill-val">OpenTelemetry, Sentry</span></div>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h3 class="skill-title">Product Engineering</h3>
+        <p class="skill-subtitle">ship · measure · iterate</p>
+        <div class="skill-rows">
+          <div class="skill-row"><span class="skill-key">Multi-tenant SaaS</span><span class="skill-val">isolation, RBAC, theming</span></div>
+          <div class="skill-row"><span class="skill-key">ERP workflows</span><span class="skill-val">invoicing, inventory, GST</span></div>
+          <div class="skill-row"><span class="skill-key">Feature flags</span><span class="skill-val">LaunchDarkly, custom</span></div>
+          <div class="skill-row"><span class="skill-key">Design partnership</span><span class="skill-val">Figma → tokens → code</span></div>
+          <div class="skill-row"><span class="skill-key">Accessibility</span><span class="skill-val">WCAG 2.2 AA, axe</span></div>
+          <div class="skill-row"><span class="skill-key">React Native</span><span class="skill-val">Reanimated, MMKV</span></div>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="skill-title">Engineering Practices</h3>
+        <p class="skill-subtitle">how the team operates</p>
+        <div class="skill-rows">
+          <div class="skill-row"><span class="skill-key">Testing</span><span class="skill-val">Jest, Playwright, Detox</span></div>
+          <div class="skill-row"><span class="skill-key">Code review</span><span class="skill-val">ratchets, linters, codeowners</span></div>
+          <div class="skill-row"><span class="skill-key">CI / CD</span><span class="skill-val">trunk-based, preview envs</span></div>
+          <div class="skill-row"><span class="skill-key">ADRs / RFCs</span><span class="skill-val">architecture decisions</span></div>
+          <div class="skill-row"><span class="skill-key">Mentoring</span><span class="skill-val">4 engineers, 2 → senior</span></div>
+          <div class="skill-row"><span class="skill-key">Agile / Scrum</span><span class="skill-val">sprint planning, retros</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-title-block">
+        <span class="eyebrow">Career</span>
+        <h2>Where I've worked.</h2>
+      </div>
+      <span class="section-meta">2021–present</span>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-spine">
+        <div class="timeline-dot"></div>
+        <div class="timeline-line"></div>
+      </div>
+      <div>
+        <div class="exp-period">2021 — Present · Bengaluru, India</div>
+        <h3 class="exp-role">Senior Frontend Engineer</h3>
+        <p class="exp-company">Aloha Technology</p>
+        <ul class="exp-bullets">
+          <li>Owning frontend architecture for a multi-tenant SaaS ERP serving enterprise customers across manufacturing and distribution.</li>
+          <li>Led Angular-to-React migration on Anchorock ERM; improved performance, maintainability, and developer productivity significantly.</li>
+          <li>Built real-time dashboards with WebSockets for invoice, inventory, and notifications at production scale.</li>
+          <li>Reviewed code and mentored junior developers, establishing React + TypeScript best practices across the team.</li>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Redux Toolkit</span>
+          <span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">WebSockets</span><span class="tag">React Native</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- WRITING -->
+<section id="writing">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-title-block">
+        <span class="eyebrow">Writing & Notes</span>
+        <h2>Thinking out loud.</h2>
+      </div>
+      <span class="section-meta">coming soon</span>
+    </div>
+    <div class="writing-grid">
+      <div class="writing-card reveal">
+        <div class="writing-top"><span class="writing-cat">Architecture</span><span class="writing-status">drafting</span></div>
+        <div class="writing-num">001</div>
+        <h3 class="writing-title">Designing Multi-Tenant SaaS Frontends</h3>
+        <p class="writing-summary">Tokens, theming, RBAC and the boring infrastructure that lets one codebase serve forty businesses without bleeding.</p>
+        <div class="writing-read">12 min read</div>
+      </div>
+      <div class="writing-card reveal">
+        <div class="writing-top"><span class="writing-cat">Product</span><span class="writing-status">outline</span></div>
+        <div class="writing-num">002</div>
+        <h3 class="writing-title">ERP UX Challenges Nobody Warns You About</h3>
+        <p class="writing-summary">Why most ERP frontends fail their power users — and the keyboard-first, density-positive patterns that actually win the analyst back.</p>
+        <div class="writing-read">9 min read</div>
+      </div>
+      <div class="writing-card reveal">
+        <div class="writing-top"><span class="writing-cat">Architecture</span><span class="writing-status">drafting</span></div>
+        <div class="writing-num">003</div>
+        <h3 class="writing-title">Scaling React Architecture Past Series B</h3>
+        <p class="writing-summary">Module federation, micro-frontends and the team topologies that decide whether your frontend stays shippable at fifty engineers.</p>
+        <div class="writing-read">15 min read</div>
+      </div>
+      <div class="writing-card reveal">
+        <div class="writing-top"><span class="writing-cat">Performance</span><span class="writing-status">research</span></div>
+        <div class="writing-num">004</div>
+        <h3 class="writing-title">Frontend Performance Beyond Lighthouse</h3>
+        <p class="writing-summary">Real User Monitoring, render budgets, INP, and the perf work that moves business numbers — not the score in the green box.</p>
+        <div class="writing-read">11 min read</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-card reveal">
+      <div class="contact-inner">
+        <div>
+          <span class="eyebrow">Available · Q3 2026</span>
+          <h2 class="contact-h2">Open to senior frontend roles at product companies.</h2>
+          <p class="contact-sub">Particularly interested in teams shipping mission-critical SaaS — Razorpay, Postman, Atlassian and similar — where frontend architecture is treated like the product feature it is.</p>
+          <div class="channel-list">
+            <div class="channel-row">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="channel-info">
+                <div class="channel-label">email</div>
+                <div class="channel-val">kpwebdev18@gmail.com</div>
+              </div>
+              <button class="channel-action" id="copy-btn" onclick="copyEmail()">copy</button>
+            </div>
+            <div class="channel-row">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </div>
+              <div class="channel-info">
+                <div class="channel-label">github</div>
+                <div class="channel-val">github.com/Kamranpathan98</div>
+              </div>
+              <a href="https://github.com/Kamranpathan98" target="_blank" rel="noopener" class="channel-action">open ↗</a>
+            </div>
+            <div class="channel-row">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </div>
+              <div class="channel-info">
+                <div class="channel-label">linkedin</div>
+                <div class="channel-val">linkedin.com/in/kamranpathan9730632772</div>
+              </div>
+              <a href="https://linkedin.com/in/kamranpathan9730632772" target="_blank" rel="noopener" class="channel-action">open ↗</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="avail-card">
+            <div class="avail-status"><span class="avail-dot"></span>available from Q3 2026</div>
+            <h3 class="avail-title">Open to the right opportunity.</h3>
+            <p class="avail-body">90-day notice. Bangalore, Pune, or remote. Targeting senior frontend / SDE-2 at product companies.</p>
+          </div>
+          <div class="interests-list">
+            <div class="interest-row"><span class="interest-dot"></span>Frontend Architecture & System Design</div>
+            <div class="interest-row"><span class="interest-dot"></span>Multi-tenant SaaS Product Engineering</div>
+            <div class="interest-row"><span class="interest-dot"></span>ERP / Enterprise Application Frontend</div>
+            <div class="interest-row"><span class="interest-dot"></span>React Native & Cross-platform Systems</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-text">© 2026 Kamran Pathan</span>
+    <div class="footer-links">
+      <a href="https://github.com/Kamranpathan98" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+      <a href="https://linkedin.com/in/kamranpathan9730632772" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+      <a href="#" class="footer-link">Resume</a>
+    </div>
+    <span class="footer-text">Built with React · Vite · Tailwind</span>
+  </div>
+</footer>
+
+<script>
+// ── NAVBAR ──────────────────────────────────────────────
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 12);
+}, { passive: true });
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+
+mobileMenu.querySelectorAll('.nav-link').forEach(l => {
+  l.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
+
+// ── ACTIVE SECTION ───────────────────────────────────────
+const secLinks = document.querySelectorAll('.nav-link[data-sec]');
+const secObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      secLinks.forEach(l => l.classList.toggle('active', l.dataset.sec === e.target.id));
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+document.querySelectorAll('section[id]').forEach(s => secObs.observe(s));
+
+// ── SCROLL REVEAL ────────────────────────────────────────
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const siblings = [...(el.parentElement?.querySelectorAll(':scope > .reveal') || [])];
+    const idx = siblings.indexOf(el);
+    el.style.transitionDelay = `${Math.max(0, idx) * 60}ms`;
+    el.classList.add('in');
+    revealObs.unobserve(el);
+  });
+}, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ── SMOOTH SCROLL ────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// ── EMAIL COPY ───────────────────────────────────────────
+function copyEmail() {
+  const btn = document.getElementById('copy-btn');
+  navigator.clipboard.writeText('kpwebdev18@gmail.com').then(() => {
+    btn.textContent = 'copied ✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 1800);
+  });
+}
+
+// ── METRICS PANEL ────────────────────────────────────────
+const TENANTS = ['northstar-mfg','blue-ridge-logi','atlas-foods','harbourline-co','qua-medical','verdant-retail','kestrel-supply','orbit-textiles','summit-pharma','tinderbox-corp','yulan-energy','rosewood-grp'];
+const EVTS = ['invoice:created','order:placed','stock:updated','user:login','report:generated','workflow:triggered','sync:completed','alert:resolved','payment:processed','config:changed','shipment:dispatched','po:approved'];
+
+const S = {
+  rps: 2847, lat: 142, err: 0.12, dau: 1284,
+  cpu: 62, mem: 74, io: 31,
+  p95: Array.from({length: 30}, () => 120 + Math.random() * 50),
+  p50: Array.from({length: 30}, () => 55 + Math.random() * 25),
+};
+
+function walk(v, vol, lo, hi) {
+  return Math.max(lo, Math.min(hi, v + (Math.random() - 0.5) * vol * 2));
+}
+
+function tween(el, target, dec) {
+  if (!el) return;
+  const start = parseFloat(el.textContent) || 0;
+  const t0 = performance.now();
+  const dur = 600;
+  const ease = t => t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+  const step = now => {
+    const t = Math.min((now - t0) / dur, 1);
+    const v = start + (target - start) * ease(t);
+    el.textContent = dec > 0 ? v.toFixed(dec) : Math.round(v).toString();
+    if (t < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+function buildPath(data, W, H, fill) {
+  const n = data.length;
+  if (n < 2) return '';
+  const lo = Math.min(...data) - 8;
+  const hi = Math.max(...data) + 8;
+  const xS = W / (n - 1);
+  const pts = data.map((v, i) => [i * xS, H - ((v - lo) / (hi - lo)) * H]);
+  let d = fill ? `M${pts[0][0]},${H}` : `M${pts[0][0]},${pts[0][1]}`;
+  pts.forEach(([x, y]) => { d += ` L${x},${y}`; });
+  if (fill) d += ` L${pts[n-1][0]},${H} Z`;
+  return d;
+}
+
+function drawSparkline() {
+  const W = 300, H = 58;
+  document.getElementById('p95-line').setAttribute('d', buildPath(S.p95, W, H, false));
+  document.getElementById('p95-fill').setAttribute('d', buildPath(S.p95, W, H, true));
+  document.getElementById('p50-line').setAttribute('d', buildPath(S.p50, W, H, false));
+  document.getElementById('p50-fill').setAttribute('d', buildPath(S.p50, W, H, true));
+}
+
+function setBar(id, vid, val) {
+  const b = document.getElementById(id);
+  const v = document.getElementById(vid);
+  if (b) b.style.width = val + '%';
+  if (v) v.textContent = Math.round(val) + '%';
+}
+
+// Feed
+let feed = [];
+function ts() {
+  const d = new Date();
+  return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}:${String(d.getSeconds()).padStart(2,'0')}`;
+}
+function pushEvent() {
+  feed.push({ t: ts(), ev: EVTS[Math.random() * EVTS.length | 0], tn: TENANTS[Math.random() * TENANTS.length | 0] });
+  if (feed.length > 30) feed.shift();
+  const body = document.getElementById('stream-body');
+  if (!body) return;
+  const visible = feed.slice(-7);
+  body.innerHTML = visible.map((e, i) =>
+    `<div class="stream-event${i === visible.length - 1 ? ' new' : ''}">` +
+    `<span class="evt-time">${e.t}</span>` +
+    `<span class="evt-arr"> › </span>` +
+    `<span class="evt-type">${e.ev}</span>` +
+    `<span class="evt-arr"> → </span>` +
+    `<span class="evt-tn">${e.tn}</span></div>`
+  ).join('');
+}
+
+// Init feed
+for (let i = 0; i < 7; i++) pushEvent();
+drawSparkline();
+
+// Stat update loop
+setInterval(() => {
+  S.rps = walk(S.rps, 90, 2100, 3900);
+  S.lat = walk(S.lat, 9, 90, 230);
+  S.err = walk(S.err, 0.05, 0.04, 0.9);
+  S.dau = walk(S.dau, 35, 950, 1650);
+  S.cpu = walk(S.cpu, 4, 28, 92);
+  S.mem = walk(S.mem, 3, 38, 89);
+  S.io  = walk(S.io,  5, 8,  78);
+
+  S.p95.shift(); S.p95.push(S.lat);
+  S.p50.shift(); S.p50.push(S.lat * 0.44 + Math.random() * 8);
+
+  tween(document.getElementById('s-rps'), S.rps, 0);
+  tween(document.getElementById('s-lat'), S.lat, 0);
+  tween(document.getElementById('s-err'), S.err, 2);
+  tween(document.getElementById('s-dau'), S.dau, 0);
+
+  setBar('ib-cpu', 'ib-cpu-v', S.cpu);
+  setBar('ib-mem', 'ib-mem-v', S.mem);
+  setBar('ib-io',  'ib-io-v',  S.io);
+
+  drawSparkline();
+}, 1100);
+
+setInterval(pushEvent, 1800);
+</script>
+</body>
+</html>
