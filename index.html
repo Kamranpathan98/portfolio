@@ -137,86 +137,26 @@ nav.scrolled{background:rgba(8,14,28,0.75);backdrop-filter:blur(16px) saturate(1
 .info-key{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.07em;color:var(--faint)}
 .info-val{font-size:13px;color:var(--muted)}
 
-/* METRICS PANEL */
-.metrics-panel{
-  background:linear-gradient(170deg,var(--card),#0d192e);
-  border:1px solid var(--border-md);border-radius:14px;
-  box-shadow:var(--shadow),0 0 0 1px rgba(56,189,248,0.05),0 40px 80px -40px rgba(56,189,248,0.12);
-  overflow:hidden;position:relative
-}
-.metrics-grid-overlay{
-  position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(148,163,184,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,0.025) 1px,transparent 1px);
-  background-size:24px 24px;
-  mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,0.55));
-  -webkit-mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,0.55))
-}
-.metrics-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 16px 0;border-bottom:1px solid var(--border)
-}
-.metrics-tabs{display:flex;gap:2px}
-.metrics-tab{
-  font-family:var(--font-mono);font-size:10.5px;
-  padding:6px 12px;border-radius:6px 6px 0 0;
-  color:var(--faint);cursor:pointer;transition:all 0.15s
-}
-.metrics-tab.active{background:rgba(56,189,248,0.1);box-shadow:inset 0 1px 0 rgba(56,189,248,0.2);color:var(--accent)}
-.metrics-live{display:flex;align-items:center;gap:10px;padding-bottom:10px}
-.live-dot{display:flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:9.5px;color:var(--green)}
-.live-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse-green 2s ease-in-out infinite}
+/* CODE EDITOR PANEL */
 @keyframes pulse-green{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,0.4)}50%{box-shadow:0 0 0 4px rgba(52,211,153,0)}}
-.metrics-region{font-family:var(--font-mono);font-size:9.5px;color:var(--faint)}
-.metrics-body{display:grid;grid-template-columns:1.4fr 1fr;gap:10px;padding:12px 14px}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px}
-.stat-card{background:rgba(5,10,22,0.55);border:1px solid var(--border);border-radius:8px;padding:9px 9px 7px}
-.stat-label{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;color:var(--faint);margin-bottom:3px;letter-spacing:0.04em}
-.stat-value{font-family:var(--font-display);font-size:19px;font-weight:600;line-height:1.1;color:var(--text)}
-.stat-unit{font-family:var(--font-mono);font-size:9px;color:var(--faint)}
-.stat-trend{font-family:var(--font-mono);font-size:9.5px;margin-top:2px}
-.trend-up{color:var(--green)}.trend-dn{color:var(--rose)}
-.sparkline-card{background:rgba(5,10,22,0.55);border:1px solid var(--border);border-radius:8px;padding:9px;margin-bottom:8px}
-.sparkline-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
-.sparkline-title{font-family:var(--font-mono);font-size:9px;color:var(--faint);text-transform:uppercase}
-.sparkline-legend{display:flex;gap:9px}
-.legend-item{display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:9px;color:var(--faint)}
-.legend-dot{width:6px;height:6px;border-radius:50%}
-.sparkline-svg{width:100%;display:block}
-.sparkline-labels{display:flex;justify-content:space-between;margin-top:2px;font-family:var(--font-mono);font-size:8px;color:var(--faint)}
-.infra-bars{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.infra-bar-card{background:rgba(5,10,22,0.55);border:1px solid var(--border);border-radius:8px;padding:8px}
-.infra-bar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
-.infra-bar-label{font-family:var(--font-mono);font-size:9px;color:var(--faint);text-transform:uppercase}
-.infra-bar-val{font-family:var(--font-mono);font-size:9px;color:var(--muted)}
-.infra-track{height:4px;border-radius:2px;background:rgba(148,163,184,0.1);overflow:hidden}
-.infra-fill{height:100%;border-radius:2px;transition:width 0.7s cubic-bezier(.2,.7,.2,1)}
-.fill-accent{background:linear-gradient(90deg,var(--accent2),var(--accent))}
-.fill-green{background:linear-gradient(90deg,var(--green),rgba(52,211,153,0.7))}
-.fill-amber{background:linear-gradient(90deg,var(--amber),rgba(251,191,36,0.7))}
-.event-stream-card{background:rgba(5,10,22,0.55);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:8px}
-.stream-header{display:flex;align-items:center;justify-content:space-between;padding:7px 9px;border-bottom:1px solid var(--border)}
-.stream-url{font-family:var(--font-mono);font-size:9px;color:var(--faint)}
-.stream-connected{display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:9px;color:var(--green)}
-.stream-connected::before{content:'●';animation:blink-green 2s steps(2) infinite}
-@keyframes blink-green{0%,100%{opacity:1}50%{opacity:0.3}}
-.stream-body{height:132px;overflow:hidden;padding:5px 9px}
-.stream-event{font-family:var(--font-mono);font-size:9.5px;line-height:1.75;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.stream-event.new{animation:fadeup 0.3s ease-out}
-@keyframes fadeup{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-.evt-time{color:rgba(74,90,117,0.7)}.evt-arr{color:var(--accent)}.evt-type{color:var(--muted)}.evt-tn{color:var(--text)}
-.tenants-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.tenant-row{display:flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:9.5px;color:var(--faint);padding:2px 0}
-.t-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
-.t-ok{background:var(--green)}.t-deg{background:var(--amber)}
-.cmd-bar{
-  background:rgba(0,0,0,0.4);border-top:1px solid var(--border);
-  padding:9px 14px;font-family:var(--font-mono);font-size:10.5px;color:var(--muted);
-  display:flex;align-items:center;gap:5px
-}
-.cmd-path{color:var(--accent)}
-.cmd-dollar{color:var(--faint)}
-.cmd-cursor{display:inline-block;width:6px;height:12px;background:var(--accent);vertical-align:middle;animation:blink-cur 1.1s steps(2) infinite}
 @keyframes blink-cur{0%,100%{opacity:1}50%{opacity:0}}
+.editor-panel{background:#0d1117;border:1px solid var(--border-md);border-radius:14px;overflow:hidden;box-shadow:var(--shadow),0 40px 80px -40px rgba(56,189,248,0.12)}
+.editor-titlebar{background:#161b22;border-bottom:1px solid var(--border);padding:10px 14px;display:flex;align-items:center;gap:14px}
+.editor-dots{display:flex;align-items:center;gap:6px}
+.editor-dot{width:12px;height:12px;border-radius:50%}
+.dot-r{background:#ff5f57}.dot-y{background:#febc2e}.dot-g{background:#28c840}
+.editor-tabs{display:flex;margin-left:4px}
+.editor-tab{font-family:var(--font-mono);font-size:11px;padding:6px 14px;color:var(--faint);white-space:nowrap;cursor:pointer;border-bottom:2px solid transparent}
+.editor-tab.active{background:#0d1117;color:var(--text);border-bottom-color:var(--accent)}
+.editor-body{padding:10px 0;overflow-x:auto}
+.ln-row{display:grid;grid-template-columns:40px 1fr}
+.ln-row.active{background:rgba(56,189,248,0.05);box-shadow:inset 2px 0 0 var(--accent)}
+.ln-num{font-family:var(--font-mono);font-size:11px;color:var(--faint);text-align:right;padding-right:16px;line-height:1.7;user-select:none}
+.ln-code{font-family:var(--font-mono);font-size:12px;line-height:1.7;white-space:pre;padding-right:20px;color:#e6edf3}
+.editor-cursor{display:inline-block;width:2px;height:14px;background:var(--accent);vertical-align:text-bottom;animation:blink-cur 1.1s steps(2) infinite;margin-left:1px}
+.editor-statusbar{background:#161b22;border-top:1px solid var(--border);padding:4px 14px;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-mono);font-size:10px;color:var(--faint)}
+.status-ts::before{content:'● ';color:var(--accent)}
+.kw{color:#ff7b72}.ty{color:#79c0ff}.str{color:#a5d6ff}.fn{color:#d2a8ff}.cm{color:#8b949e;font-style:italic}.prop{color:#ffa657}.num{color:#79c0ff}
 .panel-caption{font-family:var(--font-mono);font-size:10px;color:var(--faint);text-align:right;margin-top:8px}
 
 /* PROJECTS */
@@ -440,133 +380,72 @@ footer{border-top:1px solid var(--border);padding:24px 0}
           </div>
         </div>
       </div>
-      <!-- Right: Metrics Panel -->
+      <!-- Right: Code Editor Panel -->
       <div>
-        <div class="metrics-panel">
-          <div class="metrics-grid-overlay"></div>
-          <div class="metrics-header">
-            <div class="metrics-tabs">
-              <div class="metrics-tab active">overview</div>
-              <div class="metrics-tab">tenants</div>
-              <div class="metrics-tab">incidents</div>
-              <div class="metrics-tab">deploys</div>
+        <div class="editor-panel">
+          <div class="editor-titlebar">
+            <div class="editor-dots">
+              <span class="editor-dot dot-r"></span>
+              <span class="editor-dot dot-y"></span>
+              <span class="editor-dot dot-g"></span>
             </div>
-            <div class="metrics-live">
-              <span class="live-dot">live</span>
-              <span class="metrics-region">region: ap-south-1</span>
-            </div>
-          </div>
-          <div class="metrics-body">
-            <!-- Left col -->
-            <div>
-              <div class="stats-grid">
-                <div class="stat-card">
-                  <div class="stat-label">requests / sec</div>
-                  <div class="stat-value" id="s-rps">2847</div>
-                  <div class="stat-trend trend-up" id="s-rps-t">↑ 3.2%</div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-label">p95 latency</div>
-                  <div><span class="stat-value" id="s-lat">142</span><span class="stat-unit"> ms</span></div>
-                  <div class="stat-trend trend-up" id="s-lat-t">↓ 2.1%</div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-label">error rate</div>
-                  <div><span class="stat-value" id="s-err">0.12</span><span class="stat-unit">%</span></div>
-                  <div class="stat-trend trend-up" id="s-err-t">↓ 0.03%</div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-label">active users</div>
-                  <div class="stat-value" id="s-dau">1284</div>
-                  <div class="stat-trend trend-up" id="s-dau-t">↑ 8.4%</div>
-                </div>
-              </div>
-              <div class="sparkline-card">
-                <div class="sparkline-header">
-                  <span class="sparkline-title">response time · 5m window</span>
-                  <div class="sparkline-legend">
-                    <span class="legend-item"><span class="legend-dot" style="background:var(--accent)"></span>p95</span>
-                    <span class="legend-item"><span class="legend-dot" style="background:var(--accent2)"></span>p50</span>
-                  </div>
-                </div>
-                <svg id="spark-svg" class="sparkline-svg" height="58" viewBox="0 0 300 58" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="gp95" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.22"/>
-                      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
-                    </linearGradient>
-                    <linearGradient id="gp50" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.18"/>
-                      <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  <line x1="0" y1="14" x2="300" y2="14" stroke="rgba(148,163,184,0.06)" stroke-dasharray="3,3"/>
-                  <line x1="0" y1="29" x2="300" y2="29" stroke="rgba(148,163,184,0.06)" stroke-dasharray="3,3"/>
-                  <line x1="0" y1="44" x2="300" y2="44" stroke="rgba(148,163,184,0.06)" stroke-dasharray="3,3"/>
-                  <path id="p50-fill" fill="url(#gp50)"/>
-                  <path id="p50-line" fill="none" stroke="#818cf8" stroke-width="1.5"/>
-                  <path id="p95-fill" fill="url(#gp95)"/>
-                  <path id="p95-line" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
-                </svg>
-                <div class="sparkline-labels"><span>5m ago</span><span>now</span></div>
-              </div>
-              <div class="infra-bars">
-                <div class="infra-bar-card">
-                  <div class="infra-bar-header">
-                    <span class="infra-bar-label">cpu</span>
-                    <span class="infra-bar-val" id="ib-cpu-v">62%</span>
-                  </div>
-                  <div class="infra-track"><div class="infra-fill fill-accent" id="ib-cpu" style="width:62%"></div></div>
-                </div>
-                <div class="infra-bar-card">
-                  <div class="infra-bar-header">
-                    <span class="infra-bar-label">memory</span>
-                    <span class="infra-bar-val" id="ib-mem-v">74%</span>
-                  </div>
-                  <div class="infra-track"><div class="infra-fill fill-green" id="ib-mem" style="width:74%"></div></div>
-                </div>
-                <div class="infra-bar-card">
-                  <div class="infra-bar-header">
-                    <span class="infra-bar-label">i/o sat</span>
-                    <span class="infra-bar-val" id="ib-io-v">31%</span>
-                  </div>
-                  <div class="infra-track"><div class="infra-fill fill-amber" id="ib-io" style="width:31%"></div></div>
-                </div>
-              </div>
-            </div>
-            <!-- Right col -->
-            <div>
-              <div class="event-stream-card">
-                <div class="stream-header">
-                  <span class="stream-url">ws://stream.events</span>
-                  <span class="stream-connected">connected</span>
-                </div>
-                <div class="stream-body" id="stream-body"></div>
-              </div>
-              <div class="tenants-grid">
-                <div class="tenant-row"><span class="t-dot t-ok"></span>northstar-mfg</div>
-                <div class="tenant-row"><span class="t-dot t-ok"></span>blue-ridge-logi</div>
-                <div class="tenant-row"><span class="t-dot t-ok"></span>atlas-foods</div>
-                <div class="tenant-row"><span class="t-dot t-deg"></span>harbourline-co</div>
-                <div class="tenant-row"><span class="t-dot t-ok"></span>qua-medical</div>
-                <div class="tenant-row"><span class="t-dot t-ok"></span>verdant-retail</div>
-                <div class="tenant-row"><span class="t-dot t-ok"></span>kestrel-supply</div>
-                <div class="tenant-row"><span class="t-dot t-ok"></span>orbit-textiles</div>
-                <div class="tenant-row"><span class="t-dot t-ok"></span>summit-pharma</div>
-                <div class="tenant-row"><span class="t-dot t-ok"></span>tinderbox-corp</div>
-                <div class="tenant-row"><span class="t-dot t-ok"></span>yulan-energy</div>
-                <div class="tenant-row"><span class="t-dot t-ok"></span>rosewood-grp</div>
-              </div>
+            <div class="editor-tabs">
+              <span class="editor-tab active">useWebSocket.ts</span>
+              <span class="editor-tab">invoiceSlice.ts</span>
+              <span class="editor-tab">tenant.types.ts</span>
             </div>
           </div>
-          <div class="cmd-bar">
-            <span class="cmd-path">~/edge-router</span>
-            <span class="cmd-dollar">$</span>
-            <span>kctl observe --tenant=northstar-mfg --tail</span>
-            <span class="cmd-cursor"></span>
+          <div class="editor-body">
+<div class="ln-row"><span class="ln-num">1</span><span class="ln-code"><span class="kw">import</span> { <span class="fn">useEffect</span>, <span class="fn">useRef</span>, <span class="fn">useCallback</span> } <span class="kw">from</span> <span class="str">'react'</span>;</span></div>
+<div class="ln-row"><span class="ln-num">2</span><span class="ln-code"><span class="kw">import</span> { <span class="fn">useAppDispatch</span> } <span class="kw">from</span> <span class="str">'@/store'</span>;</span></div>
+<div class="ln-row"><span class="ln-num">3</span><span class="ln-code"><span class="kw">import</span> { <span class="fn">updateInvoiceStatus</span> } <span class="kw">from</span> <span class="str">'./invoiceSlice'</span>;</span></div>
+<div class="ln-row"><span class="ln-num">4</span><span class="ln-code"><span class="kw">import type</span> { <span class="ty">TenantEvent</span> } <span class="kw">from</span> <span class="str">'@/types/tenant'</span>;</span></div>
+<div class="ln-row"><span class="ln-num">5</span><span class="ln-code"> </span></div>
+<div class="ln-row"><span class="ln-num">6</span><span class="ln-code"><span class="kw">interface</span> <span class="ty">UseWebSocketOptions</span> {</span></div>
+<div class="ln-row"><span class="ln-num">7</span><span class="ln-code">  tenantId: <span class="ty">string</span>;</span></div>
+<div class="ln-row"><span class="ln-num">8</span><span class="ln-code">  onReconnect?: () => <span class="ty">void</span>;</span></div>
+<div class="ln-row"><span class="ln-num">9</span><span class="ln-code">}</span></div>
+<div class="ln-row"><span class="ln-num">10</span><span class="ln-code"> </span></div>
+<div class="ln-row"><span class="ln-num">11</span><span class="ln-code"><span class="kw">export function</span> <span class="fn">useWebSocket</span>({ tenantId, onReconnect }: <span class="ty">UseWebSocketOptions</span>) {</span></div>
+<div class="ln-row"><span class="ln-num">12</span><span class="ln-code">  <span class="kw">const</span> dispatch = <span class="fn">useAppDispatch</span>();</span></div>
+<div class="ln-row"><span class="ln-num">13</span><span class="ln-code">  <span class="kw">const</span> wsRef = <span class="fn">useRef</span>&lt;<span class="ty">WebSocket</span> | <span class="kw">null</span>&gt;(null);</span></div>
+<div class="ln-row"><span class="ln-num">14</span><span class="ln-code">  <span class="kw">const</span> retryRef = <span class="fn">useRef</span>(<span class="num">0</span>);</span></div>
+<div class="ln-row"><span class="ln-num">15</span><span class="ln-code"> </span></div>
+<div class="ln-row"><span class="ln-num">16</span><span class="ln-code">  <span class="kw">const</span> connect = <span class="fn">useCallback</span>(() => {</span></div>
+<div class="ln-row"><span class="ln-num">17</span><span class="ln-code">    <span class="kw">const</span> ws = <span class="kw">new</span> <span class="ty">WebSocket</span>(</span></div>
+<div class="ln-row active"><span class="ln-num">18</span><span class="ln-code">      <span class="str">`wss://api.erp.io/events?tenant=${tenantId}`</span><span class="editor-cursor"></span></span></div>
+<div class="ln-row"><span class="ln-num">19</span><span class="ln-code">    );</span></div>
+<div class="ln-row"><span class="ln-num">20</span><span class="ln-code"> </span></div>
+<div class="ln-row"><span class="ln-num">21</span><span class="ln-code">    ws<span class="prop">.onmessage</span> = ({ data }) => {</span></div>
+<div class="ln-row"><span class="ln-num">22</span><span class="ln-code">      <span class="kw">const</span> event: <span class="ty">TenantEvent</span> = JSON.parse(data);</span></div>
+<div class="ln-row"><span class="ln-num">23</span><span class="ln-code"> </span></div>
+<div class="ln-row"><span class="ln-num">24</span><span class="ln-code">      <span class="kw">if</span> (event<span class="prop">.type</span> === <span class="str">'invoice.updated'</span>) {</span></div>
+<div class="ln-row"><span class="ln-num">25</span><span class="ln-code">        <span class="fn">dispatch</span>(<span class="fn">updateInvoiceStatus</span>(event.payload));</span></div>
+<div class="ln-row"><span class="ln-num">26</span><span class="ln-code">      }</span></div>
+<div class="ln-row"><span class="ln-num">27</span><span class="ln-code">    };</span></div>
+<div class="ln-row"><span class="ln-num">28</span><span class="ln-code"> </span></div>
+<div class="ln-row"><span class="ln-num">29</span><span class="ln-code">    ws<span class="prop">.onclose</span> = () => {</span></div>
+<div class="ln-row"><span class="ln-num">30</span><span class="ln-code">      <span class="kw">const</span> delay = Math.min(<span class="num">1000</span> * <span class="num">2</span> ** retryRef<span class="prop">.current</span>, <span class="num">30000</span>);</span></div>
+<div class="ln-row"><span class="ln-num">31</span><span class="ln-code">      retryRef<span class="prop">.current</span> += <span class="num">1</span>;</span></div>
+<div class="ln-row"><span class="ln-num">32</span><span class="ln-code">      setTimeout(<span class="fn">connect</span>, delay);</span></div>
+<div class="ln-row"><span class="ln-num">33</span><span class="ln-code">      onReconnect?.();</span></div>
+<div class="ln-row"><span class="ln-num">34</span><span class="ln-code">    };</span></div>
+<div class="ln-row"><span class="ln-num">35</span><span class="ln-code"> </span></div>
+<div class="ln-row"><span class="ln-num">36</span><span class="ln-code">    wsRef<span class="prop">.current</span> = ws;</span></div>
+<div class="ln-row"><span class="ln-num">37</span><span class="ln-code">  }, [tenantId, dispatch, onReconnect]);</span></div>
+<div class="ln-row"><span class="ln-num">38</span><span class="ln-code"> </span></div>
+<div class="ln-row"><span class="ln-num">39</span><span class="ln-code">  <span class="fn">useEffect</span>(() => {</span></div>
+<div class="ln-row"><span class="ln-num">40</span><span class="ln-code">    <span class="fn">connect</span>();</span></div>
+<div class="ln-row"><span class="ln-num">41</span><span class="ln-code">    <span class="kw">return</span> () => wsRef<span class="prop">.current</span>?.close();</span></div>
+<div class="ln-row"><span class="ln-num">42</span><span class="ln-code">  }, [connect]);</span></div>
+<div class="ln-row"><span class="ln-num">43</span><span class="ln-code">}</span></div>
+          </div>
+          <div class="editor-statusbar">
+            <span class="status-ts">TypeScript React</span>
+            <span>Ln 18, Col 24&nbsp;&nbsp;UTF-8&nbsp;&nbsp;LF</span>
           </div>
         </div>
-        <p class="panel-caption">// fig 01 · production telemetry from a tenant of an ERP platform I ship</p>
+        <p class="panel-caption">// useWebSocket.ts · exponential backoff reconnect · tenant-scoped events</p>
       </div>
     </div>
   </div>
@@ -1047,116 +926,6 @@ function copyEmail() {
   });
 }
 
-// ── METRICS PANEL ────────────────────────────────────────
-const TENANTS = ['northstar-mfg','blue-ridge-logi','atlas-foods','harbourline-co','qua-medical','verdant-retail','kestrel-supply','orbit-textiles','summit-pharma','tinderbox-corp','yulan-energy','rosewood-grp'];
-const EVTS = ['invoice:created','order:placed','stock:updated','user:login','report:generated','workflow:triggered','sync:completed','alert:resolved','payment:processed','config:changed','shipment:dispatched','po:approved'];
-
-const S = {
-  rps: 2847, lat: 142, err: 0.12, dau: 1284,
-  cpu: 62, mem: 74, io: 31,
-  p95: Array.from({length: 30}, () => 120 + Math.random() * 50),
-  p50: Array.from({length: 30}, () => 55 + Math.random() * 25),
-};
-
-function walk(v, vol, lo, hi) {
-  return Math.max(lo, Math.min(hi, v + (Math.random() - 0.5) * vol * 2));
-}
-
-function tween(el, target, dec) {
-  if (!el) return;
-  const start = parseFloat(el.textContent) || 0;
-  const t0 = performance.now();
-  const dur = 600;
-  const ease = t => t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
-  const step = now => {
-    const t = Math.min((now - t0) / dur, 1);
-    const v = start + (target - start) * ease(t);
-    el.textContent = dec > 0 ? v.toFixed(dec) : Math.round(v).toString();
-    if (t < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
-
-function buildPath(data, W, H, fill) {
-  const n = data.length;
-  if (n < 2) return '';
-  const lo = Math.min(...data) - 8;
-  const hi = Math.max(...data) + 8;
-  const xS = W / (n - 1);
-  const pts = data.map((v, i) => [i * xS, H - ((v - lo) / (hi - lo)) * H]);
-  let d = fill ? `M${pts[0][0]},${H}` : `M${pts[0][0]},${pts[0][1]}`;
-  pts.forEach(([x, y]) => { d += ` L${x},${y}`; });
-  if (fill) d += ` L${pts[n-1][0]},${H} Z`;
-  return d;
-}
-
-function drawSparkline() {
-  const W = 300, H = 58;
-  document.getElementById('p95-line').setAttribute('d', buildPath(S.p95, W, H, false));
-  document.getElementById('p95-fill').setAttribute('d', buildPath(S.p95, W, H, true));
-  document.getElementById('p50-line').setAttribute('d', buildPath(S.p50, W, H, false));
-  document.getElementById('p50-fill').setAttribute('d', buildPath(S.p50, W, H, true));
-}
-
-function setBar(id, vid, val) {
-  const b = document.getElementById(id);
-  const v = document.getElementById(vid);
-  if (b) b.style.width = val + '%';
-  if (v) v.textContent = Math.round(val) + '%';
-}
-
-// Feed
-let feed = [];
-function ts() {
-  const d = new Date();
-  return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}:${String(d.getSeconds()).padStart(2,'0')}`;
-}
-function pushEvent() {
-  feed.push({ t: ts(), ev: EVTS[Math.random() * EVTS.length | 0], tn: TENANTS[Math.random() * TENANTS.length | 0] });
-  if (feed.length > 30) feed.shift();
-  const body = document.getElementById('stream-body');
-  if (!body) return;
-  const visible = feed.slice(-7);
-  body.innerHTML = visible.map((e, i) =>
-    `<div class="stream-event${i === visible.length - 1 ? ' new' : ''}">` +
-    `<span class="evt-time">${e.t}</span>` +
-    `<span class="evt-arr"> › </span>` +
-    `<span class="evt-type">${e.ev}</span>` +
-    `<span class="evt-arr"> → </span>` +
-    `<span class="evt-tn">${e.tn}</span></div>`
-  ).join('');
-}
-
-// Init feed
-for (let i = 0; i < 7; i++) pushEvent();
-drawSparkline();
-
-// Stat update loop
-setInterval(() => {
-  S.rps = walk(S.rps, 90, 2100, 3900);
-  S.lat = walk(S.lat, 9, 90, 230);
-  S.err = walk(S.err, 0.05, 0.04, 0.9);
-  S.dau = walk(S.dau, 35, 950, 1650);
-  S.cpu = walk(S.cpu, 4, 28, 92);
-  S.mem = walk(S.mem, 3, 38, 89);
-  S.io  = walk(S.io,  5, 8,  78);
-
-  S.p95.shift(); S.p95.push(S.lat);
-  S.p50.shift(); S.p50.push(S.lat * 0.44 + Math.random() * 8);
-
-  tween(document.getElementById('s-rps'), S.rps, 0);
-  tween(document.getElementById('s-lat'), S.lat, 0);
-  tween(document.getElementById('s-err'), S.err, 2);
-  tween(document.getElementById('s-dau'), S.dau, 0);
-
-  setBar('ib-cpu', 'ib-cpu-v', S.cpu);
-  setBar('ib-mem', 'ib-mem-v', S.mem);
-  setBar('ib-io',  'ib-io-v',  S.io);
-
-  drawSparkline();
-}, 1100);
-
-setInterval(pushEvent, 1800);
 </script>
 </body>
 </html>
