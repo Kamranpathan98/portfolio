@@ -631,7 +631,7 @@
         box-shadow:
           var(--shadow),
           0 40px 80px -40px rgba(56, 189, 248, 0.12);
-        max-height: 480px;
+        max-height: 460px;
       }
       .editor-titlebar {
         background: #161b22;
@@ -680,7 +680,8 @@
       }
       .editor-body {
         padding: 10px 0;
-        overflow-x: auto;
+        overflow-x: hidden;
+        font-size: 11px;
       }
       .ln-row {
         display: grid;
@@ -696,14 +697,14 @@
         color: var(--faint);
         text-align: right;
         padding-right: 16px;
-        line-height: 1.7;
+        line-height: 1.6;
         user-select: none;
       }
       .ln-code {
         font-family: var(--font-mono);
         font-size: 11px;
-        line-height: 1.7;
-        white-space: pre;
+        line-height: 1.6;
+        white-space: nowrap;
         padding-right: 20px;
         color: #e6edf3;
       }
@@ -1646,64 +1647,28 @@
               </div>
               <div class="editor-body">
                 <div class="ln-row">
-                  <span class="ln-num">1</span
-                  ><span class="ln-code"
-                    ><span class="kw">import</span> {
-                    <span class="fn">useEffect</span>,
-                    <span class="fn">useRef</span>,
-                    <span class="fn">useCallback</span> }
-                    <span class="kw">from</span>
-                    <span class="str">'react'</span>;</span
-                  >
+                  <span class="ln-num">1</span><span class="ln-code"><span class="kw">import</span> { <span class="fn">useEffect</span>, <span class="fn">useRef</span>, <span class="fn">useCallback</span> } <span class="kw">from</span> <span class="str">'react'</span>;</span>
                 </div>
                 <div class="ln-row">
-                  <span class="ln-num">2</span
-                  ><span class="ln-code"
-                    ><span class="kw">import</span> {
-                    <span class="fn">useAppDispatch</span> }
-                    <span class="kw">from</span>
-                    <span class="str">'@/store'</span>;</span
-                  >
+                  <span class="ln-num">2</span><span class="ln-code"><span class="kw">import</span> { <span class="fn">useAppDispatch</span> } <span class="kw">from</span> <span class="str">'@/store'</span>;</span>
                 </div>
                 <div class="ln-row">
-                  <span class="ln-num">3</span
-                  ><span class="ln-code"
-                    ><span class="kw">import</span> {
-                    <span class="fn">updateInvoiceStatus</span> }
-                    <span class="kw">from</span>
-                    <span class="str">'./invoiceSlice'</span>;</span
-                  >
+                  <span class="ln-num">3</span><span class="ln-code"><span class="kw">import</span> { <span class="fn">updateInvoiceStatus</span> } <span class="kw">from</span> <span class="str">'./invoiceSlice'</span>;</span>
                 </div>
                 <div class="ln-row">
-                  <span class="ln-num">4</span
-                  ><span class="ln-code"
-                    ><span class="kw">import type</span> {
-                    <span class="ty">TenantEvent</span> }
-                    <span class="kw">from</span>
-                    <span class="str">'@/types/tenant'</span>;</span
-                  >
+                  <span class="ln-num">4</span><span class="ln-code"><span class="kw">import type</span> { <span class="ty">TenantEvent</span> } <span class="kw">from</span> <span class="str">'@/types/tenant'</span>;</span>
                 </div>
                 <div class="ln-row">
                   <span class="ln-num">5</span><span class="ln-code"> </span>
                 </div>
                 <div class="ln-row">
-                  <span class="ln-num">6</span
-                  ><span class="ln-code"
-                    ><span class="kw">interface</span>
-                    <span class="ty">UseWebSocketOptions</span> {</span
-                  >
+                  <span class="ln-num">6</span><span class="ln-code"><span class="kw">interface</span> <span class="ty">UseWebSocketOptions</span> {</span>
                 </div>
                 <div class="ln-row">
-                  <span class="ln-num">7</span
-                  ><span class="ln-code">
-                    tenantId: <span class="ty">string</span>;</span
-                  >
+                  <span class="ln-num">7</span><span class="ln-code">  tenantId: <span class="ty">string</span>;</span>
                 </div>
                 <div class="ln-row">
-                  <span class="ln-num">8</span
-                  ><span class="ln-code">
-                    onReconnect?: () => <span class="ty">void</span>;</span
-                  >
+                  <span class="ln-num">8</span><span class="ln-code">  onReconnect?: () => <span class="ty">void</span>;</span>
                 </div>
                 <div class="ln-row">
                   <span class="ln-num">9</span><span class="ln-code">}</span>
@@ -1712,69 +1677,28 @@
                   <span class="ln-num">10</span><span class="ln-code"> </span>
                 </div>
                 <div class="ln-row">
-                  <span class="ln-num">11</span
-                  ><span class="ln-code"
-                    ><span class="kw">export function</span>
-                    <span class="fn">useWebSocket</span>({ tenantId, onReconnect
-                    }: <span class="ty">UseWebSocketOptions</span>) {</span
-                  >
+                  <span class="ln-num">11</span><span class="ln-code"><span class="kw">export function</span> <span class="fn">useWebSocket</span>({ tenantId, onReconnect }: <span class="ty">UseWebSocketOptions</span>) {</span>
                 </div>
                 <div class="ln-row">
-                  <span class="ln-num">12</span
-                  ><span class="ln-code">
-                    <span class="kw">const</span> dispatch =
-                    <span class="fn">useAppDispatch</span>();</span
-                  >
+                  <span class="ln-num">12</span><span class="ln-code">  <span class="kw">const</span> dispatch = <span class="fn">useAppDispatch</span>();</span>
                 </div>
                 <div class="ln-row">
-                  <span class="ln-num">13</span
-                  ><span class="ln-code">
-                    <span class="kw">const</span> wsRef =
-                    <span class="fn">useRef</span>&lt;<span class="ty"
-                      >WebSocket</span
-                    >
-                    | <span class="kw">null</span>&gt;(null);</span
-                  >
+                  <span class="ln-num">13</span><span class="ln-code">  <span class="kw">const</span> wsRef = <span class="fn">useRef</span>&lt;<span class="ty">WebSocket</span> | <span class="kw">null</span>&gt;(<span class="kw">null</span>);</span>
                 </div>
                 <div class="ln-row">
-                  <span class="ln-num">14</span
-                  ><span class="ln-code">
-                    <span class="kw">const</span> retryRef =
-                    <span class="fn">useRef</span>(<span class="num">0</span
-                    >);</span
-                  >
+                  <span class="ln-num">14</span><span class="ln-code">  <span class="kw">const</span> retryRef = <span class="fn">useRef</span>(<span class="num">0</span>);</span>
                 </div>
                 <div class="ln-row">
                   <span class="ln-num">15</span><span class="ln-code"> </span>
                 </div>
                 <div class="ln-row">
-                  <span class="ln-num">16</span
-                  ><span class="ln-code">
-                    <span class="kw">const</span> connect =
-                    <span class="fn">useCallback</span>(() => {</span
-                  >
+                  <span class="ln-num">16</span><span class="ln-code">  <span class="kw">const</span> connect = <span class="fn">useCallback</span>(() => {</span>
                 </div>
                 <div class="ln-row">
-                  <span class="ln-num">17</span
-                  ><span class="ln-code">
-                    <span class="kw">const</span> ws =
-                    <span class="kw">new</span>
-                    <span class="ty">WebSocket</span>(</span
-                  >
+                  <span class="ln-num">17</span><span class="ln-code">    <span class="kw">const</span> ws = <span class="kw">new</span> <span class="ty">WebSocket</span>(</span>
                 </div>
                 <div class="ln-row active">
-                  <span class="ln-num">18</span
-                  ><span class="ln-code">
-                    <span class="str"
-                      >`wss://api.erp.io/events?tenant=${tenantId}`</span
-                    ><span class="editor-cursor"></span
-                  ></span>
-                </div>
-                <div class="ln-row">
-                  <span class="ln-num">19</span><span class="ln-code"> );</span>
-                </div>
-                <div class="ln-row">
-                  <span class="ln-num">20</span><span class="ln-code"> </span>
+                  <span class="ln-num">18</span><span class="ln-code">      <span class="str">`wss://api.erp.io/events?tenant=${tenantId}`</span><span class="editor-cursor"></span></span>
                 </div>
               </div>
               <div class="editor-statusbar">
