@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kamran Pathan — Senior Frontend Engineer. Building scalable frontend systems for real-world workflows.">
-<title>Kamran Pathan — Senior Frontend Engineer</title>
+<meta name="description" content="Kamran Pathan — Software Developer. Building scalable frontend systems for real-world workflows.">
+<title>Kamran Pathan — Software Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -119,11 +119,11 @@ nav.scrolled{background:rgba(8,14,28,0.75);backdrop-filter:blur(16px) saturate(1
 .mobile-menu-actions{display:flex;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
 
 /* HERO */
-#hero{padding:120px 0 80px;min-height:100vh;display:flex;align-items:center}
-.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
-.hero-left{max-width:520px}
+#hero{padding:80px 0 60px;min-height:100vh;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hero-left{max-width:480px}
 .hero-eyebrow{margin-bottom:18px}
-.hero-title{margin-bottom:18px}
+.hero-title{font-size:clamp(28px,3.2vw,48px);font-weight:600;line-height:1.15;margin-bottom:18px}
 .gradient-line{
   background:linear-gradient(120deg,#f0f4f8,#38bdf8,#818cf8);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
@@ -140,7 +140,7 @@ nav.scrolled{background:rgba(8,14,28,0.75);backdrop-filter:blur(16px) saturate(1
 /* CODE EDITOR PANEL */
 @keyframes pulse-green{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,0.4)}50%{box-shadow:0 0 0 4px rgba(52,211,153,0)}}
 @keyframes blink-cur{0%,100%{opacity:1}50%{opacity:0}}
-.editor-panel{background:#0d1117;border:1px solid var(--border-md);border-radius:14px;overflow:hidden;box-shadow:var(--shadow),0 40px 80px -40px rgba(56,189,248,0.12)}
+.editor-panel{background:#0d1117;border:1px solid var(--border-md);border-radius:14px;overflow:hidden;box-shadow:var(--shadow),0 40px 80px -40px rgba(56,189,248,0.12);max-height:480px}
 .editor-titlebar{background:#161b22;border-bottom:1px solid var(--border);padding:10px 14px;display:flex;align-items:center;gap:14px}
 .editor-dots{display:flex;align-items:center;gap:6px}
 .editor-dot{width:12px;height:12px;border-radius:50%}
@@ -152,7 +152,7 @@ nav.scrolled{background:rgba(8,14,28,0.75);backdrop-filter:blur(16px) saturate(1
 .ln-row{display:grid;grid-template-columns:40px 1fr}
 .ln-row.active{background:rgba(56,189,248,0.05);box-shadow:inset 2px 0 0 var(--accent)}
 .ln-num{font-family:var(--font-mono);font-size:11px;color:var(--faint);text-align:right;padding-right:16px;line-height:1.7;user-select:none}
-.ln-code{font-family:var(--font-mono);font-size:12px;line-height:1.7;white-space:pre;padding-right:20px;color:#e6edf3}
+.ln-code{font-family:var(--font-mono);font-size:11px;line-height:1.7;white-space:pre;padding-right:20px;color:#e6edf3}
 .editor-cursor{display:inline-block;width:2px;height:14px;background:var(--accent);vertical-align:text-bottom;animation:blink-cur 1.1s steps(2) infinite;margin-left:1px}
 .editor-statusbar{background:#161b22;border-top:1px solid var(--border);padding:4px 14px;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-mono);font-size:10px;color:var(--faint)}
 .status-ts::before{content:'● ';color:var(--accent)}
@@ -160,7 +160,7 @@ nav.scrolled{background:rgba(8,14,28,0.75);backdrop-filter:blur(16px) saturate(1
 .panel-caption{font-family:var(--font-mono);font-size:10px;color:var(--faint);text-align:right;margin-top:8px}
 
 /* PROJECTS */
-.projects-stack{display:flex;flex-direction:column;gap:2px}
+.projects-stack{display:flex;flex-direction:column;gap:24px}
 .project-card{background:var(--card);border:1px solid var(--border);border-radius:14px;transition:all 0.2s}
 .project-card:hover{background:var(--card2);border-color:var(--border-md)}
 .project-top{padding:28px 28px 24px;display:grid;grid-template-columns:1fr auto;gap:16px}
@@ -180,7 +180,7 @@ nav.scrolled{background:rgba(8,14,28,0.75);backdrop-filter:blur(16px) saturate(1
 .project-bottom{padding:14px 28px 20px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px}
 
 /* PRINCIPLES */
-.principles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.principles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .principle-card{
   background:var(--card);border:1px solid var(--border);border-radius:12px;
   padding:22px;transition:all 0.22s;position:relative;overflow:hidden
@@ -198,7 +198,7 @@ nav.scrolled{background:rgba(8,14,28,0.75);backdrop-filter:blur(16px) saturate(1
 .principle-body{font-size:13px;color:var(--muted);line-height:1.6}
 
 /* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 18px;transition:all 0.22s}
 .skill-card:hover{border-color:var(--border-md);transform:translateY(-2px)}
 .skill-icon{width:36px;height:36px;border-radius:9px;background:rgba(56,189,248,0.09);border:1px solid rgba(56,189,248,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
@@ -206,9 +206,7 @@ nav.scrolled{background:rgba(8,14,28,0.75);backdrop-filter:blur(16px) saturate(1
 .skill-title{font-family:var(--font-display);font-size:15px;font-weight:700;margin-bottom:2px}
 .skill-subtitle{font-family:var(--font-mono);font-size:10px;color:var(--faint);margin-bottom:12px}
 .skill-rows{display:flex;flex-direction:column}
-.skill-row{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--border);padding:5px 0;gap:8px}
-.skill-key{font-size:12px;color:var(--text)}
-.skill-val{font-family:var(--font-mono);font-size:10px;color:var(--faint);text-align:right;flex-shrink:0}
+.skill-row{font-size:13px;color:var(--muted);padding:6px 0;border-top:1px solid var(--border)}
 
 /* EXPERIENCE */
 .timeline{display:grid;grid-template-columns:20px 1fr;gap:20px}
@@ -223,7 +221,7 @@ nav.scrolled{background:rgba(8,14,28,0.75);backdrop-filter:blur(16px) saturate(1
 .exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--faint)}
 
 /* WRITING */
-.writing-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.writing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .writing-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all 0.22s;position:relative;overflow:hidden}
 .writing-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(56,189,248,0.04),transparent 60%);opacity:0;transition:opacity 0.22s}
 .writing-card:hover{border-color:var(--border-md);transform:translateY(-2px)}
@@ -286,16 +284,38 @@ footer{border-top:1px solid var(--border);padding:24px 0}
 }
 @media(max-width:820px){
   section{padding:70px 0}
-  #hero{padding:110px 0 70px}
+  #hero{padding:90px 0 50px}
+  .hero-panel-wrap{display:none}
+  .hero-grid{grid-template-columns:1fr}
   .nav-links,.nav-actions{display:none}
   .hamburger{display:flex}
   .metrics-body{grid-template-columns:1fr}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-card{padding:28px 20px}
+  .contact-inner{grid-template-columns:1fr;gap:32px}
+  .channel-row,.chan{padding:12px 14px}
+  .channel-val,.chan-val{font-size:12px;white-space:normal;word-break:break-all;overflow:visible;text-overflow:unset}
+  .channel-info,.chan-body{min-width:0;overflow:hidden}
+  .contact-h2,.contact-h{font-size:22px}
+  .contact-sub{font-size:13px}
+  
+  /* PROJECTS MOBILE FIXES */
+  .projects-stack{gap:16px}
+  .project-card,.proj{border-radius:12px}
+  .project-top,.proj-head{padding:24px 20px 20px;grid-template-columns:1fr;gap:16px}
+  .project-mid,.proj-body{padding:0 20px 20px;grid-template-columns:1fr;gap:20px}
+  .project-bottom,.proj-stack{padding:16px 20px 20px;gap:8px}
+  .project-title,.proj-title{font-size:20px}
+  .decision-list,.proj-decisions{display:flex;flex-direction:column;gap:10px}
+  .decision-list li,.proj-decisions li{font-size:13.5px;line-height:1.6}
+  .impact-grid,.proj-impact{grid-template-columns:repeat(2,1fr);gap:8px}
+  .impact-item,.impact-card{padding:14px 10px}
+  .col-label,.proj-section-title{margin-bottom:12px;margin-top:4px}
 }
 @media(max-width:600px){
   h1{font-size:28px}
   .skills-grid,.principles-grid,.writing-grid{grid-template-columns:1fr}
-  .contact-card{padding:28px}
+  .contact-card{padding:28px 20px}
   .project-mid{grid-template-columns:1fr}
   .project-top{grid-template-columns:1fr}
   .project-link{display:none}
@@ -312,7 +332,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
       <div class="nav-monogram">kp</div>
       <div>
         <div class="nav-name">Kamran Pathan</div>
-        <span class="nav-version">v3.2.0 · senior frontend</span>
+        <span class="nav-version">v3.2.0 · software developer</span>
       </div>
     </a>
     <div class="nav-links">
@@ -349,14 +369,14 @@ footer{border-top:1px solid var(--border);padding:24px 0}
     <div class="hero-grid">
       <!-- Left -->
       <div class="hero-left">
-        <div class="eyebrow hero-eyebrow">Available · Q3 2026 · Bengaluru / Remote</div>
+        <div class="eyebrow hero-eyebrow">Available · Q3 2026 · Pune / Remote</div>
         <h1 class="hero-title">
           Building scalable<br>
           <span class="gradient-line">frontend systems</span><br>
           for real-world workflows.
         </h1>
         <p class="hero-sub">
-          I'm <strong>Kamran Pathan</strong> — a Senior Frontend Engineer designing and shipping
+          I'm <strong>Kamran Pathan</strong> — a Software Developer designing and shipping
           multi-tenant SaaS frontends, ERP interfaces, and product experiences
           that handle real business complexity without buckling under it.
         </p>
@@ -368,7 +388,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         <div class="hero-info-grid">
           <div class="info-row">
             <span class="info-key">currently</span>
-            <span class="info-val">Senior Frontend Engineer, Aloha Technology</span>
+            <span class="info-val">Software Developer, Aloha Technology Pvt. Ltd.</span>
           </div>
           <div class="info-row">
             <span class="info-key">stack</span>
@@ -381,7 +401,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         </div>
       </div>
       <!-- Right: Code Editor Panel -->
-      <div>
+      <div class="hero-panel-wrap">
         <div class="editor-panel">
           <div class="editor-titlebar">
             <div class="editor-dots">
@@ -416,29 +436,6 @@ footer{border-top:1px solid var(--border);padding:24px 0}
 <div class="ln-row active"><span class="ln-num">18</span><span class="ln-code">      <span class="str">`wss://api.erp.io/events?tenant=${tenantId}`</span><span class="editor-cursor"></span></span></div>
 <div class="ln-row"><span class="ln-num">19</span><span class="ln-code">    );</span></div>
 <div class="ln-row"><span class="ln-num">20</span><span class="ln-code"> </span></div>
-<div class="ln-row"><span class="ln-num">21</span><span class="ln-code">    ws<span class="prop">.onmessage</span> = ({ data }) => {</span></div>
-<div class="ln-row"><span class="ln-num">22</span><span class="ln-code">      <span class="kw">const</span> event: <span class="ty">TenantEvent</span> = JSON.parse(data);</span></div>
-<div class="ln-row"><span class="ln-num">23</span><span class="ln-code"> </span></div>
-<div class="ln-row"><span class="ln-num">24</span><span class="ln-code">      <span class="kw">if</span> (event<span class="prop">.type</span> === <span class="str">'invoice.updated'</span>) {</span></div>
-<div class="ln-row"><span class="ln-num">25</span><span class="ln-code">        <span class="fn">dispatch</span>(<span class="fn">updateInvoiceStatus</span>(event.payload));</span></div>
-<div class="ln-row"><span class="ln-num">26</span><span class="ln-code">      }</span></div>
-<div class="ln-row"><span class="ln-num">27</span><span class="ln-code">    };</span></div>
-<div class="ln-row"><span class="ln-num">28</span><span class="ln-code"> </span></div>
-<div class="ln-row"><span class="ln-num">29</span><span class="ln-code">    ws<span class="prop">.onclose</span> = () => {</span></div>
-<div class="ln-row"><span class="ln-num">30</span><span class="ln-code">      <span class="kw">const</span> delay = Math.min(<span class="num">1000</span> * <span class="num">2</span> ** retryRef<span class="prop">.current</span>, <span class="num">30000</span>);</span></div>
-<div class="ln-row"><span class="ln-num">31</span><span class="ln-code">      retryRef<span class="prop">.current</span> += <span class="num">1</span>;</span></div>
-<div class="ln-row"><span class="ln-num">32</span><span class="ln-code">      setTimeout(<span class="fn">connect</span>, delay);</span></div>
-<div class="ln-row"><span class="ln-num">33</span><span class="ln-code">      onReconnect?.();</span></div>
-<div class="ln-row"><span class="ln-num">34</span><span class="ln-code">    };</span></div>
-<div class="ln-row"><span class="ln-num">35</span><span class="ln-code"> </span></div>
-<div class="ln-row"><span class="ln-num">36</span><span class="ln-code">    wsRef<span class="prop">.current</span> = ws;</span></div>
-<div class="ln-row"><span class="ln-num">37</span><span class="ln-code">  }, [tenantId, dispatch, onReconnect]);</span></div>
-<div class="ln-row"><span class="ln-num">38</span><span class="ln-code"> </span></div>
-<div class="ln-row"><span class="ln-num">39</span><span class="ln-code">  <span class="fn">useEffect</span>(() => {</span></div>
-<div class="ln-row"><span class="ln-num">40</span><span class="ln-code">    <span class="fn">connect</span>();</span></div>
-<div class="ln-row"><span class="ln-num">41</span><span class="ln-code">    <span class="kw">return</span> () => wsRef<span class="prop">.current</span>?.close();</span></div>
-<div class="ln-row"><span class="ln-num">42</span><span class="ln-code">  }, [connect]);</span></div>
-<div class="ln-row"><span class="ln-num">43</span><span class="ln-code">}</span></div>
           </div>
           <div class="editor-statusbar">
             <span class="status-ts">TypeScript React</span>
@@ -470,7 +467,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         <div class="project-top">
           <div>
             <span class="tag accent">01</span>
-            <div class="project-meta-row">Tech Lead, Frontend · 2024 — present</div>
+            <div class="project-meta-row">Software Developer · 2024 — present</div>
             <h3 class="project-title">Multi-tenant SaaS ERP Platform</h3>
             <p class="project-pos">An ERP backbone running 40+ manufacturers, distributors and retailers on a single codebase.</p>
           </div>
@@ -507,7 +504,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         <div class="project-top">
           <div>
             <span class="tag accent">02</span>
-            <div class="project-meta-row">Senior Frontend Engineer · 2022–2024</div>
+            <div class="project-meta-row">Software Developer · 2022–2024</div>
             <h3 class="project-title">Anchorock ERM</h3>
             <p class="project-pos">Enterprise resource management for industrial supply chains. Angular 2 → React migration.</p>
           </div>
@@ -543,7 +540,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         <div class="project-top">
           <div>
             <span class="tag accent">03</span>
-            <div class="project-meta-row">Frontend Lead · 2021–2022</div>
+            <div class="project-meta-row">Software Developer · 2021–2022</div>
             <h3 class="project-title">React Native Food Delivery App</h3>
             <p class="project-pos">Consumer iOS/Android app — 200k MAU, offline-first, 60fps on entry-level Android.</p>
           </div>
@@ -647,12 +644,9 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         <h3 class="skill-title">Frontend Systems</h3>
         <p class="skill-subtitle">primitives · perf · state</p>
         <div class="skill-rows">
-          <div class="skill-row"><span class="skill-key">React 18 / Concurrent UI</span><span class="skill-val">transitions, suspense, RSC</span></div>
-          <div class="skill-row"><span class="skill-key">TypeScript</span><span class="skill-val">generics, discriminated unions</span></div>
-          <div class="skill-row"><span class="skill-key">Redux Toolkit</span><span class="skill-val">slices, RTK Query</span></div>
-          <div class="skill-row"><span class="skill-key">Web performance</span><span class="skill-val">LCP, INP, render budgets</span></div>
-          <div class="skill-row"><span class="skill-key">Virtualised tables</span><span class="skill-val">TanStack, AG Grid, 250k rows</span></div>
-          <div class="skill-row"><span class="skill-key">Module federation</span><span class="skill-val">Nx, Turborepo, micro-FE</span></div>
+          <div class="skill-row">React 18</div>
+          <div class="skill-row">TypeScript</div>
+          <div class="skill-row">Redux Toolkit</div>
         </div>
       </div>
       <div class="skill-card reveal">
@@ -662,12 +656,10 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         <h3 class="skill-title">Backend & APIs</h3>
         <p class="skill-subtitle">the data path I own</p>
         <div class="skill-rows">
-          <div class="skill-row"><span class="skill-key">Node.js / NestJS</span><span class="skill-val">REST, BullMQ, guards</span></div>
-          <div class="skill-row"><span class="skill-key">PostgreSQL</span><span class="skill-val">RLS, migrations, audit</span></div>
-          <div class="skill-row"><span class="skill-key">WebSocket / SSE</span><span class="skill-val">fan-out, presence, retries</span></div>
-          <div class="skill-row"><span class="skill-key">Auth</span><span class="skill-val">OAuth2, JWT, RBAC + ABAC</span></div>
-          <div class="skill-row"><span class="skill-key">REST contracts</span><span class="skill-val">OpenAPI, RFC 7807</span></div>
-          <div class="skill-row"><span class="skill-key">Observability</span><span class="skill-val">OpenTelemetry, Sentry</span></div>
+          <div class="skill-row">Node.js</div>
+          <div class="skill-row">PostgreSQL</div>
+          <div class="skill-row">Auth (JWT)</div>
+          <div class="skill-row">REST APIs</div>
         </div>
       </div>
       <div class="skill-card reveal">
@@ -677,12 +669,8 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         <h3 class="skill-title">Product Engineering</h3>
         <p class="skill-subtitle">ship · measure · iterate</p>
         <div class="skill-rows">
-          <div class="skill-row"><span class="skill-key">Multi-tenant SaaS</span><span class="skill-val">isolation, RBAC, theming</span></div>
-          <div class="skill-row"><span class="skill-key">ERP workflows</span><span class="skill-val">invoicing, inventory, GST</span></div>
-          <div class="skill-row"><span class="skill-key">Feature flags</span><span class="skill-val">LaunchDarkly, custom</span></div>
-          <div class="skill-row"><span class="skill-key">Design partnership</span><span class="skill-val">Figma → tokens → code</span></div>
-          <div class="skill-row"><span class="skill-key">Accessibility</span><span class="skill-val">WCAG 2.2 AA, axe</span></div>
-          <div class="skill-row"><span class="skill-key">React Native</span><span class="skill-val">Reanimated, MMKV</span></div>
+          <div class="skill-row">Multi-tenant SaaS</div>
+          <div class="skill-row">ERP Workflows</div>
         </div>
       </div>
       <div class="skill-card reveal">
@@ -692,12 +680,10 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         <h3 class="skill-title">Engineering Practices</h3>
         <p class="skill-subtitle">how the team operates</p>
         <div class="skill-rows">
-          <div class="skill-row"><span class="skill-key">Testing</span><span class="skill-val">Jest, Playwright, Detox</span></div>
-          <div class="skill-row"><span class="skill-key">Code review</span><span class="skill-val">ratchets, linters, codeowners</span></div>
-          <div class="skill-row"><span class="skill-key">CI / CD</span><span class="skill-val">trunk-based, preview envs</span></div>
-          <div class="skill-row"><span class="skill-key">ADRs / RFCs</span><span class="skill-val">architecture decisions</span></div>
-          <div class="skill-row"><span class="skill-key">Mentoring</span><span class="skill-val">4 engineers, 2 → senior</span></div>
-          <div class="skill-row"><span class="skill-key">Agile / Scrum</span><span class="skill-val">sprint planning, retros</span></div>
+          <div class="skill-row">Testing (Jest)</div>
+          <div class="skill-row">Code Review</div>
+          <div class="skill-row">Mentoring</div>
+          <div class="skill-row">Agile / Scrum</div>
         </div>
       </div>
     </div>
@@ -722,9 +708,9 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         <div class="timeline-line"></div>
       </div>
       <div>
-        <div class="exp-period">2021 — Present · Bengaluru, India</div>
-        <h3 class="exp-role">Senior Frontend Engineer</h3>
-        <p class="exp-company">Aloha Technology</p>
+        <div class="exp-period">2021 — Present · India</div>
+        <h3 class="exp-role">Software Developer</h3>
+        <p class="exp-company">Aloha Technology Pvt. Ltd.</p>
         <ul class="exp-bullets">
           <li>Owning frontend architecture for a multi-tenant SaaS ERP serving enterprise customers across manufacturing and distribution.</li>
           <li>Led Angular-to-React migration on Anchorock ERM; improved performance, maintainability, and developer productivity significantly.</li>
@@ -765,17 +751,17 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         <div class="writing-num">002</div>
         <h3 class="writing-title">ERP UX Challenges Nobody Warns You About</h3>
         <p class="writing-summary">Why most ERP frontends fail their power users — and the keyboard-first, density-positive patterns that actually win the analyst back.</p>
-        <div class="writing-read">9 min read</div>
+        <div class="writing-read">8 min read</div>
       </div>
       <div class="writing-card reveal">
-        <div class="writing-top"><span class="writing-cat">Architecture</span><span class="writing-status">drafting</span></div>
+        <div class="writing-top"><span class="writing-cat">DevOps</span><span class="writing-status">outline</span></div>
         <div class="writing-num">003</div>
-        <h3 class="writing-title">Scaling React Architecture Past Series B</h3>
+        <h3 class="writing-title">Micro-Frontends at Scale</h3>
         <p class="writing-summary">Module federation, micro-frontends and the team topologies that decide whether your frontend stays shippable at fifty engineers.</p>
-        <div class="writing-read">15 min read</div>
+        <div class="writing-read">14 min read</div>
       </div>
       <div class="writing-card reveal">
-        <div class="writing-top"><span class="writing-cat">Performance</span><span class="writing-status">research</span></div>
+        <div class="writing-top"><span class="writing-cat">Performance</span><span class="writing-status">published</span></div>
         <div class="writing-num">004</div>
         <h3 class="writing-title">Frontend Performance Beyond Lighthouse</h3>
         <p class="writing-summary">Real User Monitoring, render budgets, INP, and the perf work that moves business numbers — not the score in the green box.</p>
@@ -793,8 +779,8 @@ footer{border-top:1px solid var(--border);padding:24px 0}
     <div class="contact-card reveal">
       <div class="contact-inner">
         <div>
-          <span class="eyebrow">Available · Q3 2026</span>
-          <h2 class="contact-h2">Open to senior frontend roles at product companies.</h2>
+          <span class="eyebrow">Available · Q3 2026 · Pune / Remote</span>
+          <h2 class="contact-h2">Open to software developer roles at product companies.</h2>
           <p class="contact-sub">Particularly interested in teams shipping mission-critical SaaS — Razorpay, Postman, Atlassian and similar — where frontend architecture is treated like the product feature it is.</p>
           <div class="channel-list">
             <div class="channel-row">
@@ -833,7 +819,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
           <div class="avail-card">
             <div class="avail-status"><span class="avail-dot"></span>available from Q3 2026</div>
             <h3 class="avail-title">Open to the right opportunity.</h3>
-            <p class="avail-body">90-day notice. Bangalore, Pune, or remote. Targeting senior frontend / SDE-2 at product companies.</p>
+            <p class="avail-body">90-day notice. Pune or remote. Targeting software developer / SDE-2 at product companies.</p>
           </div>
           <div class="interests-list">
             <div class="interest-row"><span class="interest-dot"></span>Frontend Architecture & System Design</div>
