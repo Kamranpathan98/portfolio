@@ -1127,82 +1127,7 @@
         color: var(--faint);
       }
 
-      /* WRITING */
-      .writing-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-      }
-      .writing-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 20px;
-        transition: all 0.22s;
-        position: relative;
-        overflow: hidden;
-      }
-      .writing-card::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(56, 189, 248, 0.04),
-          transparent 60%
-        );
-        opacity: 0;
-        transition: opacity 0.22s;
-      }
-      .writing-card:hover {
-        border-color: var(--border-md);
-        transform: translateY(-2px);
-      }
-      .writing-card:hover::after {
-        opacity: 1;
-      }
-      .writing-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 10px;
-      }
-      .writing-cat {
-        font-family: var(--font-mono);
-        font-size: 10px;
-        text-transform: uppercase;
-        color: var(--accent);
-        letter-spacing: 0.06em;
-      }
-      .writing-status {
-        font-family: var(--font-mono);
-        font-size: 10px;
-        color: var(--faint);
-      }
-      .writing-num {
-        font-family: var(--font-mono);
-        font-size: 10px;
-        color: var(--faint);
-        margin-bottom: 6px;
-      }
-      .writing-title {
-        font-family: var(--font-display);
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 1.25;
-        margin-bottom: 8px;
-      }
-      .writing-summary {
-        font-size: 12.5px;
-        color: var(--muted);
-        line-height: 1.55;
-        margin-bottom: 10px;
-      }
-      .writing-read {
-        font-family: var(--font-mono);
-        font-size: 10px;
-        color: var(--faint);
-      }
+
 
       /* CONTACT */
       .contact-card {
@@ -1535,8 +1460,7 @@
           font-size: 28px;
         }
         .skills-grid,
-        .principles-grid,
-        .writing-grid {
+        .principles-grid {
           grid-template-columns: 1fr;
         }
         .contact-card {
@@ -1604,7 +1528,6 @@
           <a href="#experience" class="nav-link" data-sec="experience"
             >Experience</a
           >
-          <a href="#writing" class="nav-link" data-sec="writing">Writing</a>
         </div>
         <div class="nav-actions">
           <a
@@ -1641,7 +1564,6 @@
       <a href="#principles" class="nav-link">Principles</a>
       <a href="#skills" class="nav-link">Skills</a>
       <a href="#experience" class="nav-link">Experience</a>
-      <a href="#writing" class="nav-link">Writing</a>
       <div class="mobile-menu-actions">
         <a
           href="#contact"
@@ -2135,82 +2057,6 @@
         </div>
       </div>
     </section>
-
-    <div class="section-divider"></div>
-
-    <!-- WRITING -->
-    <section id="writing">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-title-block">
-            <span class="eyebrow">Writing & Notes</span>
-            <h2>Thinking out loud.</h2>
-          </div>
-          <span class="section-meta">coming soon</span>
-        </div>
-        <div class="writing-grid">
-          <div class="writing-card reveal">
-            <div class="writing-top">
-              <span class="writing-cat">Architecture</span
-              ><span class="writing-status">drafting</span>
-            </div>
-            <div class="writing-num">001</div>
-            <h3 class="writing-title">Designing Multi-Tenant SaaS Frontends</h3>
-            <p class="writing-summary">
-              Tokens, theming, RBAC and the boring infrastructure that lets one
-              codebase serve forty businesses without bleeding.
-            </p>
-            <div class="writing-read">12 min read</div>
-          </div>
-          <div class="writing-card reveal">
-            <div class="writing-top">
-              <span class="writing-cat">Product</span
-              ><span class="writing-status">outline</span>
-            </div>
-            <div class="writing-num">002</div>
-            <h3 class="writing-title">
-              ERP UX Challenges Nobody Warns You About
-            </h3>
-            <p class="writing-summary">
-              Why most ERP frontends fail their power users — and the
-              keyboard-first, density-positive patterns that actually win the
-              analyst back.
-            </p>
-            <div class="writing-read">8 min read</div>
-          </div>
-          <div class="writing-card reveal">
-            <div class="writing-top">
-              <span class="writing-cat">DevOps</span
-              ><span class="writing-status">outline</span>
-            </div>
-            <div class="writing-num">003</div>
-            <h3 class="writing-title">Micro-Frontends at Scale</h3>
-            <p class="writing-summary">
-              Module federation, micro-frontends and the team topologies that
-              decide whether your frontend stays shippable at fifty engineers.
-            </p>
-            <div class="writing-read">14 min read</div>
-          </div>
-          <div class="writing-card reveal">
-            <div class="writing-top">
-              <span class="writing-cat">Performance</span
-              ><span class="writing-status">published</span>
-            </div>
-            <div class="writing-num">004</div>
-            <h3 class="writing-title">
-              Frontend Performance Beyond Lighthouse
-            </h3>
-            <p class="writing-summary">
-              Real User Monitoring, render budgets, INP, and the perf work that
-              moves business numbers — not the score in the green box.
-            </p>
-            <div class="writing-read">11 min read</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
 
     <!-- CONTACT -->
     <section id="contact">
