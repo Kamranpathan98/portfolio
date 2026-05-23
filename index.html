@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -46,6 +52,138 @@
         --shadow:
           0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 2px 4px rgba(0, 0, 0, 0.5),
           0 20px 40px -20px rgba(0, 0, 0, 0.6);
+      }
+      [data-theme="light"] {
+        --bg: #f8f9fc;
+        --surface: #ffffff;
+        --card: #ffffff;
+        --card2: #f1f4f9;
+        --border: rgba(15, 23, 42, 0.08);
+        --border-md: rgba(15, 23, 42, 0.14);
+        --border-bright: rgba(15, 23, 42, 0.22);
+        --text: #0f172a;
+        --muted: #475569;
+        --faint: #94a3b8;
+        --accent: #0284c7;
+        --accent2: #6366f1;
+        --green: #059669;
+        --amber: #d97706;
+        --rose: #e11d48;
+      }
+      [data-theme="light"] body {
+        background-image:
+          radial-gradient(
+            ellipse 80% 50% at 10% -10%,
+            rgba(2, 132, 199, 0.06),
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 90% 5%,
+            rgba(99, 102, 241, 0.04),
+            transparent 55%
+          );
+        background-color: #f8f9fc;
+      }
+      [data-theme="light"] nav.scrolled {
+        background: rgba(248, 249, 252, 0.85);
+      }
+      [data-theme="light"] .gradient-line {
+        background: linear-gradient(120deg, #0f172a, #0284c7, #6366f1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      [data-theme="light"] .section-divider {
+        background: rgba(15, 23, 42, 0.08);
+      }
+      [data-theme="light"] .btn.primary {
+        color: #ffffff;
+      }
+      .editor-panel,
+      .code-editor-panel,
+      .mp-cmd,
+      .mp-feed {
+        --bg: #0d1117;
+        --surface: #0d1117;
+        --card: #161b22;
+        --card2: #21262d;
+        --border: rgba(240, 246, 252, 0.1);
+        --border-md: rgba(240, 246, 252, 0.15);
+        --border-bright: rgba(240, 246, 252, 0.25);
+        --text: #c9d1d9;
+        --muted: #8b949e;
+        --faint: #484f58;
+        --accent: #58a6ff;
+        --accent2: #bc8cff;
+        background-color: #0d1117 !important;
+        color: #e6edf3 !important;
+      }
+      html,
+      body {
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+      .project-card,
+      .principle-card,
+      .info-row,
+      .info-val,
+      .btn,
+      .nav-link,
+      .tag,
+      .section-divider,
+      .nav-inner,
+      .nav-monogram,
+      nav,
+      footer {
+        transition:
+          background 0.3s ease,
+          border-color 0.3s ease,
+          color 0.3s ease,
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .theme-toggle-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1px solid var(--border-md);
+        background: var(--card);
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .theme-toggle-btn:hover {
+        background: var(--card2);
+        border-color: var(--border-bright);
+      }
+      .theme-toggle-btn svg {
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        position: absolute;
+      }
+      @keyframes icon-appear {
+        0% {
+          opacity: 0;
+          transform: scale(0.6) rotate(-90deg);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+        }
+      }
+      .theme-toggle-btn svg {
+        animation: icon-appear 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       }
       html {
         scroll-behavior: smooth;
@@ -1398,6 +1536,17 @@
             style="padding: 7px 14px; font-size: 13px"
             >Contact</a
           >
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+            <!-- Sun Icon (for dark mode) -->
+            <svg id="icon-sun" class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+            <!-- Moon Icon (for light mode) -->
+            <svg id="icon-moon" class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
           <a
             href="#"
             class="btn primary"
@@ -2293,6 +2442,31 @@
             btn.textContent = "copy";
             btn.classList.remove("copied");
           }, 1800);
+        });
+      }
+
+      // ── THEME TOGGLE ──────────────────────────────────────────
+      const toggle = document.getElementById("theme-toggle");
+      const root = document.documentElement;
+
+      function setTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+        // update icon
+        document.getElementById("icon-sun").style.display =
+          theme === "dark" ? "block" : "none";
+        document.getElementById("icon-moon").style.display =
+          theme === "light" ? "block" : "none";
+      }
+
+      // On load
+      const saved = localStorage.getItem("theme") || "dark";
+      setTheme(saved);
+
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          const current = root.getAttribute("data-theme");
+          setTheme(current === "dark" ? "light" : "dark");
         });
       }
     </script>
