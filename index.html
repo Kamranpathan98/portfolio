@@ -760,37 +760,27 @@
         to { transform: rotate(360deg); }
       }
       .orbit-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 12px;
-        border-radius: 999px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
         background: var(--card);
         border: 1px solid var(--border-md);
-        font-family: var(--font-mono);
-        font-size: 11.5px;
-        font-weight: 500;
-        color: var(--text);
-        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-        backdrop-filter: blur(8px);
-        transition: border-color 0.2s, box-shadow 0.2s;
+        transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        padding: 0;
       }
       .orbit-badge:hover {
         border-color: var(--accent);
-        box-shadow: 0 0 16px rgba(56,189,248,0.2);
+        box-shadow: 0 0 16px rgba(56,189,248,0.25);
+        transform: scale(1.15);
       }
-      .tech-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        flex-shrink: 0;
-        display: inline-block;
-      }
-      .orbit-caption {
-        font-size: 10.5px;
-        color: var(--faint);
-        text-align: center;
+      .orbit-badge img {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
       }
       [data-theme="light"] .orbit-avatar {
         background: linear-gradient(135deg, rgba(2,132,199,0.15), rgba(99,102,241,0.15));
@@ -1509,7 +1499,7 @@
           <div class="nav-monogram">kp</div>
           <div>
             <div class="nav-name">Kamran Pathan</div>
-            <span class="nav-version">v3.2.0 · software developer</span>
+            <span class="nav-version">software developer</span>
           </div>
         </a>
         <div class="nav-links">
@@ -1576,9 +1566,7 @@
         <div class="hero-grid">
           <!-- Left -->
           <div class="hero-left">
-            <div class="eyebrow hero-eyebrow">
-              Available · Q3 2026 · Pune / Remote
-            </div>
+
             <h1 class="hero-title">
               Building scalable<br />
               <span class="gradient-line">frontend systems</span><br />
@@ -1637,27 +1625,23 @@
               <!-- Inner orbit ring -->
               <div class="orbit-ring ring-1">
                 <div class="orbit-item" style="--i:0; --total:4">
-                  <div class="orbit-badge">
-                    <span class="tech-dot" style="background: #61DAFB"></span>
-                    <span>React</span>
+                  <div class="orbit-badge" title="React">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
                   </div>
                 </div>
                 <div class="orbit-item" style="--i:1; --total:4">
-                  <div class="orbit-badge">
-                    <span class="tech-dot" style="background: #3178C6"></span>
-                    <span>TypeScript</span>
+                  <div class="orbit-badge" title="TypeScript">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
                   </div>
                 </div>
                 <div class="orbit-item" style="--i:2; --total:4">
-                  <div class="orbit-badge">
-                    <span class="tech-dot" style="background: #68A063"></span>
-                    <span>Node.js</span>
+                  <div class="orbit-badge" title="Node.js">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
                   </div>
                 </div>
                 <div class="orbit-item" style="--i:3; --total:4">
-                  <div class="orbit-badge">
-                    <span class="tech-dot" style="background: #764ABC"></span>
-                    <span>Redux</span>
+                  <div class="orbit-badge" title="Redux">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" alt="Redux" />
                   </div>
                 </div>
               </div>
@@ -1665,39 +1649,33 @@
               <!-- Outer orbit ring -->
               <div class="orbit-ring ring-2">
                 <div class="orbit-item" style="--i:0; --total:5">
-                  <div class="orbit-badge">
-                    <span class="tech-dot" style="background: #336791"></span>
-                    <span>PostgreSQL</span>
+                  <div class="orbit-badge" title="PostgreSQL">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
                   </div>
                 </div>
                 <div class="orbit-item" style="--i:1; --total:5">
-                  <div class="orbit-badge">
-                    <span class="tech-dot" style="background: #0081CB"></span>
-                    <span>Material UI</span>
+                  <div class="orbit-badge" title="Material UI">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" alt="Material UI" />
                   </div>
                 </div>
                 <div class="orbit-item" style="--i:2; --total:5">
-                  <div class="orbit-badge">
-                    <span class="tech-dot" style="background: #61DAFB"></span>
-                    <span>React Native</span>
+                  <div class="orbit-badge" title="React Native">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" />
                   </div>
                 </div>
                 <div class="orbit-item" style="--i:3; --total:5">
-                  <div class="orbit-badge">
-                    <span class="tech-dot" style="background: #E0234E"></span>
-                    <span>NestJS</span>
+                  <div class="orbit-badge" title="NestJS">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg" alt="NestJS" />
                   </div>
                 </div>
                 <div class="orbit-item" style="--i:4; --total:5">
-                  <div class="orbit-badge">
-                    <span class="tech-dot" style="background: #F7DF1E"></span>
-                    <span>JavaScript</span>
+                  <div class="orbit-badge" title="JavaScript">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
                   </div>
                 </div>
               </div>
 
             </div>
-            <div class="orbit-caption mono">// 4.5 years · 2 products · 1 engineer</div>
           </div>
         </div>
       </div>
@@ -2049,7 +2027,7 @@
         <div class="contact-card reveal">
           <div class="contact-inner">
             <div>
-              <span class="eyebrow">Available · Q3 2026 · Pune / Remote</span>
+
               <h2 class="contact-h2">
                 Open to software developer roles at product companies.
               </h2>
@@ -2129,7 +2107,7 @@
             <div>
               <div class="avail-card">
                 <div class="avail-status">
-                  <span class="avail-dot"></span>available from Q3 2026
+                  <span class="avail-dot"></span>available
                 </div>
                 <h3 class="avail-title">Open to the right opportunity.</h3>
                 <p class="avail-body">
