@@ -99,6 +99,43 @@
       [data-theme="light"] .btn.primary {
         color: #ffffff;
       }
+      [data-theme="light"] .contact-card {
+        background: linear-gradient(150deg, #ffffff 0%, #f1f4f9 100%);
+        border-color: rgba(15, 23, 42, 0.12);
+      }
+      [data-theme="light"] .contact-card::before {
+        background-image:
+          linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+      }
+      [data-theme="light"] .chan {
+        background: rgba(15, 23, 42, 0.04);
+        border-color: rgba(15, 23, 42, 0.1);
+      }
+      [data-theme="light"] .chan:hover {
+        background: rgba(15, 23, 42, 0.08);
+      }
+      [data-theme="light"] .chan-icon {
+        background: rgba(2, 132, 199, 0.08);
+        border-color: rgba(2, 132, 199, 0.2);
+      }
+      [data-theme="light"] .avail-card {
+        background: rgba(5, 150, 105, 0.06);
+        border-color: rgba(5, 150, 105, 0.2);
+      }
+      [data-theme="light"] .interest-list li {
+        background: rgba(15, 23, 42, 0.03);
+        border-color: rgba(15, 23, 42, 0.08);
+      }
+      [data-theme="light"] .contact-h {
+        color: #0f172a;
+      }
+      [data-theme="light"] .contact-sub {
+        color: #475569;
+      }
+      [data-theme="light"] .contact-card::after {
+        display: none;
+      }
       .editor-panel,
       .code-editor-panel,
       .mp-cmd,
