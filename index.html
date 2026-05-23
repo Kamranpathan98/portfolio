@@ -160,15 +160,15 @@ nav.scrolled{background:rgba(8,14,28,0.75);backdrop-filter:blur(16px) saturate(1
 .panel-caption{font-family:var(--font-mono);font-size:10px;color:var(--faint);text-align:right;margin-top:8px}
 
 /* PROJECTS */
-.projects-stack{display:flex;flex-direction:column;gap:24px}
-.project-card{background:var(--card);border:1px solid var(--border);border-radius:14px;transition:all 0.2s}
+.projects-stack,.proj-list{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.project-card,.proj{background:var(--card);border:1px solid var(--border);border-radius:14px;transition:all 0.2s;display:flex;flex-direction:column;height:100%}
 .project-card:hover{background:var(--card2);border-color:var(--border-md)}
 .project-top{padding:28px 28px 24px;display:grid;grid-template-columns:1fr auto;gap:16px}
 .project-meta-row{font-family:var(--font-mono);font-size:10.5px;color:var(--faint);margin:6px 0 10px}
 .project-title{font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:-0.025em;margin-bottom:6px}
 .project-pos{font-size:14px;color:var(--muted);max-width:560px}
 .project-link{align-self:flex-start;font-size:12.5px;padding:7px 14px}
-.project-mid{padding:0 28px 24px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.project-mid,.proj-body{padding:0 28px 24px;display:grid;grid-template-columns:1fr;gap:24px;flex:1}
 .col-label{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;color:var(--faint);margin-bottom:10px;letter-spacing:0.06em}
 .decision-list{list-style:none;display:flex;flex-direction:column;gap:6px}
 .decision-list li{font-size:13px;color:var(--muted);line-height:1.5;padding-left:14px;position:relative}
@@ -300,7 +300,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
   .contact-sub{font-size:13px}
   
   /* PROJECTS MOBILE FIXES */
-  .projects-stack{gap:16px}
+  .projects-stack,.proj-list{grid-template-columns:1fr;gap:16px}
   .project-card,.proj{border-radius:12px}
   .project-top,.proj-head{padding:24px 20px 20px;grid-template-columns:1fr;gap:16px}
   .project-mid,.proj-body{padding:0 20px 20px;grid-template-columns:1fr;gap:20px}
@@ -459,7 +459,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         <h2>Projects that ship.</h2>
         <p>Three systems I designed, built, and own in production.</p>
       </div>
-      <span class="section-meta">3 projects · 2021–present</span>
+      <span class="section-meta">2 projects · 2021–present</span>
     </div>
     <div class="projects-stack">
       <!-- 01 -->
@@ -471,7 +471,6 @@ footer{border-top:1px solid var(--border);padding:24px 0}
             <h3 class="project-title">Multi-tenant SaaS ERP Platform</h3>
             <p class="project-pos">An ERP backbone running 40+ manufacturers, distributors and retailers on a single codebase.</p>
           </div>
-          <a href="#" class="btn project-link">View Case Study ↗</a>
         </div>
         <div class="project-mid">
           <div>
@@ -482,15 +481,6 @@ footer{border-top:1px solid var(--border);padding:24px 0}
               <li>Virtualised data grids handling 250k+ rows with column-level RBAC enforced server-side</li>
               <li>Optimistic mutations with reconciled WebSocket invalidation across the tab tree</li>
             </ul>
-          </div>
-          <div>
-            <div class="col-label">Impact</div>
-            <div class="impact-grid">
-              <div class="impact-item"><span class="impact-val">−38%</span><span class="impact-label">render p95</span></div>
-              <div class="impact-item"><span class="impact-val">40+</span><span class="impact-label">tenants</span></div>
-              <div class="impact-item"><span class="impact-val">250k</span><span class="impact-label">rows/grid</span></div>
-              <div class="impact-item"><span class="impact-val">99.97%</span><span class="impact-label">uptime 90d</span></div>
-            </div>
           </div>
         </div>
         <div class="project-bottom">
@@ -506,69 +496,22 @@ footer{border-top:1px solid var(--border);padding:24px 0}
             <span class="tag accent">02</span>
             <div class="project-meta-row">Software Developer · 2022–2024</div>
             <h3 class="project-title">Anchorock ERM</h3>
-            <p class="project-pos">Enterprise resource management for industrial supply chains. Angular 2 → React migration.</p>
+            <p class="project-pos">Enterprise resource management platform for construction site safety. Led a 3-person frontend team migrating the application from Angular 2 to React.</p>
           </div>
-          <a href="#" class="btn project-link">View Case Study ↗</a>
         </div>
         <div class="project-mid">
           <div>
             <div class="col-label">Technical Decisions</div>
             <ul class="decision-list">
-              <li>Keyboard-first table primitive: range select, bulk edit, formula bar, full undo stack</li>
-              <li>Field-level audit log surfaced inline as a hover affordance — no separate audit screen</li>
-              <li>Server-driven UI for compliance workflows so policy changes without redeploys</li>
-              <li>Cut p95 route latency 38% via server components and aggressive edge caching</li>
+              <li>Led Angular 2 to React migration across the entire frontend codebase</li>
+              <li>Built reusable UI component library using React and Material UI</li>
+              <li>Developed dashboards and data-heavy forms for site safety workflows</li>
+              <li>Coordinated frontend work across a team of 3 developers</li>
             </ul>
-          </div>
-          <div>
-            <div class="col-label">Impact</div>
-            <div class="impact-grid">
-              <div class="impact-item"><span class="impact-val">−6.2h</span><span class="impact-label">analyst/week</span></div>
-              <div class="impact-item"><span class="impact-val">12k</span><span class="impact-label">DAU</span></div>
-              <div class="impact-item"><span class="impact-val">0</span><span class="impact-label">blockers Q2</span></div>
-              <div class="impact-item"><span class="impact-val">94</span><span class="impact-label">NPS</span></div>
-            </div>
           </div>
         </div>
         <div class="project-bottom">
-          <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Angular 2→React</span>
-          <span class="tag">GraphQL</span><span class="tag">Radix UI</span><span class="tag">Framer Motion</span><span class="tag">Playwright</span>
-        </div>
-      </div>
-      <!-- 03 -->
-      <div class="project-card reveal">
-        <div class="project-top">
-          <div>
-            <span class="tag accent">03</span>
-            <div class="project-meta-row">Software Developer · 2021–2022</div>
-            <h3 class="project-title">React Native Food Delivery App</h3>
-            <p class="project-pos">Consumer iOS/Android app — 200k MAU, offline-first, 60fps on entry-level Android.</p>
-          </div>
-          <a href="#" class="btn project-link">View Case Study ↗</a>
-        </div>
-        <div class="project-mid">
-          <div>
-            <div class="col-label">Technical Decisions</div>
-            <ul class="decision-list">
-              <li>Offline-first cart with CRDT-style merge layer to survive flaky 3G</li>
-              <li>Custom Hermes-friendly animation primitives — 60fps on lowest-spec Android</li>
-              <li>Single TypeScript design system shared across native app and Next.js admin console</li>
-              <li>Feature flag rollout pipeline integrated with backend experiment IDs</li>
-            </ul>
-          </div>
-          <div>
-            <div class="col-label">Impact</div>
-            <div class="impact-grid">
-              <div class="impact-item"><span class="impact-val">0.9s</span><span class="impact-label">cold start</span></div>
-              <div class="impact-item"><span class="impact-val">+22%</span><span class="impact-label">cart conv.</span></div>
-              <div class="impact-item"><span class="impact-val">200k</span><span class="impact-label">MAU</span></div>
-              <div class="impact-item"><span class="impact-val">4.6★</span><span class="impact-label">Play Store</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="project-bottom">
-          <span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Reanimated 3</span>
-          <span class="tag">Zustand</span><span class="tag">MMKV</span><span class="tag">Detox</span><span class="tag">Sentry</span>
+          <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">Material UI</span><span class="tag">Angular 2</span>
         </div>
       </div>
     </div>
@@ -781,7 +724,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
         <div>
           <span class="eyebrow">Available · Q3 2026 · Pune / Remote</span>
           <h2 class="contact-h2">Open to software developer roles at product companies.</h2>
-          <p class="contact-sub">Particularly interested in teams shipping mission-critical SaaS — Razorpay, Postman, Atlassian and similar — where frontend architecture is treated like the product feature it is.</p>
+          <p class="contact-sub">Particularly interested in product companies where frontend engineering is treated as a core discipline — not just UI delivery.</p>
           <div class="channel-list">
             <div class="channel-row">
               <div class="channel-icon">
@@ -842,7 +785,7 @@ footer{border-top:1px solid var(--border);padding:24px 0}
       <a href="https://linkedin.com/in/kamranpathan9730632772" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
       <a href="#" class="footer-link">Resume</a>
     </div>
-    <span class="footer-text">Built with React · Vite · Tailwind</span>
+    <span class="footer-text">Built with HTML · CSS · JavaScript</span>
   </div>
 </footer>
 
