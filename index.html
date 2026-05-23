@@ -1556,9 +1556,35 @@
           align-items: flex-start;
         }
       }
+      #cursor-glow {
+        position: fixed;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 0;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease;
+        opacity: 0;
+        background: radial-gradient(
+          circle,
+          rgba(56, 189, 248, 0.08) 0%,
+          rgba(129, 140, 248, 0.05) 40%,
+          transparent 70%
+        );
+      }
+      [data-theme="light"] #cursor-glow {
+        background: radial-gradient(
+          circle,
+          rgba(2, 132, 199, 0.07) 0%,
+          rgba(99, 102, 241, 0.04) 40%,
+          transparent 70%
+        );
+      }
     </style>
   </head>
   <body>
+    <div id="cursor-glow"></div>
     <!-- NAVBAR -->
     <nav id="navbar">
       <div class="nav-inner">
@@ -2443,6 +2469,19 @@
           setTheme(current === "dark" ? "light" : "dark");
         });
       }
+
+      // ── CURSOR GLOW ───────────────────────────────────────────
+      const glow = document.getElementById("cursor-glow");
+
+      document.addEventListener("mousemove", (e) => {
+        glow.style.left = e.clientX + "px";
+        glow.style.top = e.clientY + "px";
+        glow.style.opacity = "1";
+      });
+
+      document.addEventListener("mouseleave", () => {
+        glow.style.opacity = "0";
+      });
     </script>
   </body>
 </html>
