@@ -4,7 +4,13 @@
       "PowerShell(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" log --oneline -10)",
       "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" diff HEAD)",
       "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" diff)",
-      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" status)"
+      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" status)",
+      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" pull)",
+      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" stash)",
+      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" stash pop)",
+      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" diff --stat HEAD)",
+      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" add index.html)",
+      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" stash drop)"
     ]
   }
 }
