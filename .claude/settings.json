@@ -10,7 +10,17 @@
       "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" stash pop)",
       "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" diff --stat HEAD)",
       "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" add index.html)",
-      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" stash drop)"
+      "Bash(git -C \"d:\\\\Projects\\\\port\\\\portfolio\" stash drop)",
+      "Bash(pip show *)",
+      "Bash(where chrome.exe)",
+      "Bash(where msedge.exe)",
+      "Read(//c/Program Files/Google/Chrome/Application//**)",
+      "Read(//c/Program Files \\\\\\(x86\\\\\\)/Microsoft/Edge/Application//**)",
+      "Bash(python -c \"print\\('ok'\\)\")",
+      "Bash(ls -la .claude)",
+      "Bash(find . -iname \"*.json\" -not -path \"./.git/*\")",
+      "Bash(find . -iname \"CNAME\" -not -path \"./.git/*\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=\"resume_new.pdf\" --print-to-pdf-no-header \"file://$\\(pwd\\)/resume.html\")"
     ]
   }
 }
